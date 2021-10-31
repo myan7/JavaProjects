@@ -75,4 +75,21 @@ public class EASY_009_PalindromeNumber {
         return reversedVal == intVal;
     } // isPalindrome3 ends
 
+    public boolean isPalindrome4(int x) {
+        int n,sum=0,y,i;
+        if(x>0)
+        {
+            y=x;
+            for(i = 0; y>0; i++)
+            {
+                n = y%10;
+                sum =10 *sum + n;
+                y =y/10;
+            }
+            return x == sum;
+        }
+        else return x == 0;
+
+    }
+
 } // class ends

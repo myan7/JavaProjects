@@ -2,6 +2,7 @@ package com.myjobhunting.easy;
 
 import java.util.HashMap;
 
+// https://leetcode.com/problems/two-sum/
 public class EASY_001_TwoSum {
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer,Integer> kvMap = new HashMap<>();

@@ -1,10 +1,5 @@
-package com.myjobhunting.easy;
+package com.myjobhunting;
 
-
-import jdk.jfr.FlightRecorderListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 //Definition for singly-linked list.
 class ListNode {

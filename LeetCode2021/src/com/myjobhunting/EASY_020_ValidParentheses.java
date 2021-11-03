@@ -1,4 +1,4 @@
-package com.myjobhunting.easy;
+package com.myjobhunting;
 
 import java.util.Stack;
 

@@ -1,6 +1,5 @@
 package com.myjobhunting.easy;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 //https://leetcode.com/problems/longest-common-prefix/
@@ -19,11 +18,11 @@ public class EASY_014_LongestCommonPrefix {
             return strs[0];
     }
 
-    public String longestCommonPrefix3(String[] strs) {
+    public String longestCommonPrefix2(String[] strs) {
         HashMap<String, Integer> kvMap = new HashMap<>();
         int min = 200;
         String commonStr = "";
-        // find the shortest string
+        /* find the shortest string */
         for (String s: strs)
         {
             kvMap.put(s,s.length());

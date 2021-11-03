@@ -4,8 +4,11 @@ public class Main {
 
     public static void main(String[] args) {
         /* testing code starts here */
+        /* 20 Valid Parentheses */
+        String s = "([)]";
+        System.out.println(new EASY_020_ValidParentheses().isValid2(s));
 
-        /* 014 longest common prefix */
+        /* 014 longest common prefix
         //String[] strs = new String[]{"abc", "abcd", "abcs", "abe","abd"};
         //String[] strs = {"flower","flow","flight"};
         //String[] strs = {"flower","flower","flower","flower"};
@@ -15,6 +18,8 @@ public class Main {
 
         String solution = new EASY_014_LongestCommonPrefix().longestCommonPrefix(strs);
         System.out.println("common string is " + solution);
+        */
+
 
         /* 013 roman to int
         // String romanVal = "III";

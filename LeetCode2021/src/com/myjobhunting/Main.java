@@ -4,6 +4,25 @@ public class Main {
 
     public static void main(String[] args) {
         /* testing code starts here */
+        int[] digits = {9,9,9};
+        EASY_066_PlusOne ans = new EASY_066_PlusOne();
+        System.out.print("[");
+        for (int val : ans.plusOne(digits))
+            System.out.print( val + ", ");
+        System.out.println("]");
+
+
+
+        /* 58 Length of Last Word*/
+        //String s = "Hello World"; //5
+        //String s = "   fly me   to   the moon  "; //4
+        //String s = "luffy is still joyboy"; //6
+        /*String s = "a";
+        EASY_058_LengthofLastWord ans = new EASY_058_LengthofLastWord();
+        System.out.println(ans.lengthOfLastWord(s));*/
+
+
+
         /* 28 implement strStr()
         String haystack = "Hello"; String needle = "ll";
         EASY_028_Implement_strStr solution = new EASY_028_Implement_strStr();

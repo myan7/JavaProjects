@@ -8,15 +8,11 @@ public class EASY_066_PlusOne {
             digits[digits.length - 1] = add[1];
         }
         else
-        {
-            digits[digits.length - 1] = digits[digits.length - 1] +1;
-        }
+            digits[digits.length - 1] = digits[digits.length - 1] + 1;
         for(int i = digits.length-2 ; i >=0; i--)
         {
             if(add[0] != 0 && digits[i]+1 == 10)
-            {
                 digits[i] = add[1];
-            }
             else if(add[0] != 0 && digits[i]+1 < 10)
             {
                 add[0] = 0;
@@ -24,18 +20,14 @@ public class EASY_066_PlusOne {
             }
         }
         if(add[0] != 1)
-        {
             return digits;
-        }
         else
         {
             int[] ans = new int[(digits.length+1)];
             ans[0] = 1;
             int i = 1;
             for(int val: digits)
-            {
                 ans[i] = val;
-            }
             return ans;
         }
     }

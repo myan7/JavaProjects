@@ -1,17 +1,38 @@
 package com.myjobhunting;
 
+import com.sun.source.tree.Tree;
+
 public class Main {
 
     public static void main(String[] args) {
         /* testing code starts here */
-        int[] nums1 = {1,2,3,0,0,0};
+
+
+        TreeNode left1 = new TreeNode(4);
+        TreeNode left2 = new TreeNode(5);
+        TreeNode left = new TreeNode(2,left1,left2);
+        TreeNode right = new TreeNode(3);
+        TreeNode root = new TreeNode(1,left,right);
+
+        EASY_094_BinaryTreeInorderTraversal inorder = new EASY_094_BinaryTreeInorderTraversal();
+        System.out.println(inorder.inorderTraversal(root));
+
+        EASY_094_BinaryTreePreorderTraversal preorder = new EASY_094_BinaryTreePreorderTraversal();
+        System.out.println(preorder.preorderTraversal(root));
+
+        EASY_094_BinaryTreePostorderTraversal postorder = new EASY_094_BinaryTreePostorderTraversal();
+        System.out.println(postorder.postorderTraversal(root));
+
+
+
+        /*int[] nums1 = {1,2,3,0,0,0};
         int m = 3;
         int[] nums2 = {2,5,6};
         int n = 3;
         EASY_088_MergeSortedArray solution = new EASY_088_MergeSortedArray();
         solution.merge(nums1,m,nums2,n);
         for( int val : nums1)
-            System.out.print(val + ", ");
+            System.out.print(val + ", ");*/
 
 
         /*ListNode head = new ListNode(1);

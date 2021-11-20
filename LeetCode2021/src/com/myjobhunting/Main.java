@@ -7,21 +7,23 @@ public class Main {
     public static void main(String[] args) {
         /* testing code starts here */
 
-
         TreeNode left1 = new TreeNode(4);
         TreeNode left2 = new TreeNode(5);
         TreeNode left = new TreeNode(2,left1,left2);
         TreeNode right = new TreeNode(3);
         TreeNode root = new TreeNode(1,left,right);
 
-        EASY_094_BinaryTreeInorderTraversal inorder = new EASY_094_BinaryTreeInorderTraversal();
+        EASY_104_MaximumDepthofBinaryTree solution = new EASY_104_MaximumDepthofBinaryTree();
+        System.out.println(solution.maxDepth(root));
+
+        /*EASY_094_BinaryTreeInorderTraversal inorder = new EASY_094_BinaryTreeInorderTraversal();
         System.out.println(inorder.inorderTraversal(root));
 
         EASY_094_BinaryTreePreorderTraversal preorder = new EASY_094_BinaryTreePreorderTraversal();
         System.out.println(preorder.preorderTraversal(root));
 
         EASY_094_BinaryTreePostorderTraversal postorder = new EASY_094_BinaryTreePostorderTraversal();
-        System.out.println(postorder.postorderTraversal(root));
+        System.out.println(postorder.postorderTraversal(root));*/
 
 
 

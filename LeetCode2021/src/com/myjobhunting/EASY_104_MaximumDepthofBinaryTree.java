@@ -16,7 +16,7 @@ public class EASY_104_MaximumDepthofBinaryTree {
     private int depth;
     public int maxDepth2(TreeNode root)
     {
-        depth = 0;
+        int depth = 0;
         helper(root, 1);
         return depth;
     }
@@ -32,7 +32,9 @@ public class EASY_104_MaximumDepthofBinaryTree {
         }
 
         helper(root.left, currDepth+1);
+        //System.out.println("after left "+currDepth);
         helper(root.right, currDepth+1);
+        //System.out.println("after right "+currDepth);
     }
 
     public int maxDepth3(TreeNode root) {
@@ -40,21 +42,21 @@ public class EASY_104_MaximumDepthofBinaryTree {
             return 0;
         int depth = 1;
         int[] res = new int[1];
-        helper(root,depth,res);
+        helper3(root,depth,res);
         return res[0];
     }
 
-    public void helper(TreeNode n, int depth, int[] res)
+    public void helper3(TreeNode n, int depth, int[] res)
     {
         if(n.left == null && n.right == null)
             res[0] = Math.max(depth,res[0]);
         if(n.left != null)
         {
-            helper(n.left,depth+1,res);
+            helper3(n.left,depth+1,res);
         }
         if(n.right != null )
         {
-            helper(n.right,depth+1,res);
+            helper3(n.right,depth+1,res);
         }
     }
 

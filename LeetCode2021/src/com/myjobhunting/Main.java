@@ -7,14 +7,27 @@ public class Main {
     public static void main(String[] args) {
         /* testing code starts here */
 
-        TreeNode left1 = new TreeNode(4);
+        TreeNode ll2 = null;
+        TreeNode lr2 = null;
+        TreeNode rl2 = new TreeNode(15);
+        TreeNode rr2 = new TreeNode(7);
+        TreeNode l1 = new TreeNode(9,ll2,lr2);
+        TreeNode r1 = new TreeNode(20,rl2,rr2);
+        TreeNode root = new TreeNode(3,l1,r1);
+        EASY_111_MinimumDepthofBinaryTree sol = new EASY_111_MinimumDepthofBinaryTree();
+        System.out.println(sol.minDepth2(root));
+
+        /*EASY_110_BalancedBinaryTree solution = new EASY_110_BalancedBinaryTree();
+        System.out.println(solution.isBalanced(root));*/
+
+        /*TreeNode left1 = new TreeNode(4);
         TreeNode left2 = new TreeNode(5);
         TreeNode left = new TreeNode(2,left1,left2);
         TreeNode right = new TreeNode(3);
         TreeNode root = new TreeNode(1,left,right);
-
+*/
         EASY_104_MaximumDepthofBinaryTree solution = new EASY_104_MaximumDepthofBinaryTree();
-        System.out.println(solution.maxDepth(root));
+        System.out.println(solution.maxDepth2(root));
 
         /*EASY_094_BinaryTreeInorderTraversal inorder = new EASY_094_BinaryTreeInorderTraversal();
         System.out.println(inorder.inorderTraversal(root));

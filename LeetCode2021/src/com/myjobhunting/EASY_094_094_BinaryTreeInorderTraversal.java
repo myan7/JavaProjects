@@ -15,7 +15,7 @@ import java.util.List;
         Inorder traversal will display the tree as [4 2 5 1 3]
 */
 
-public class EASY_094_BinaryTreeInorderTraversal {
+public class EASY_094_094_BinaryTreeInorderTraversal {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
         if (root == null) {

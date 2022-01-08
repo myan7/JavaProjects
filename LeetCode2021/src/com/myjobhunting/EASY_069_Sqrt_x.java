@@ -23,23 +23,21 @@ public class EASY_069_Sqrt_x {
         return end;
     }
     public int mySqrt2(int x) {
-        int start = 2, end = x;
-        if (x == 0) return 0;
-        else if (x <= 3)    return 1;
-        else{
-            while(true)
+        if (x == 0)
+            return 0;
+        int left = 1, right = x/2;
+        while (true)
+        {
+            int mid = left + (right - left)/2;
+            if (mid > x/mid)
             {
-                int mid = start + (end-start)/2;
-                if(x/mid < mid)
-                {
-                    end = mid-1;
-                }
-                else
-                {
-                    if(mid+1 > x/(mid+1))
-                        return mid;
-                    start = mid +1;
-                }
+                right = mid - 1;
+            }
+            else
+            {
+                if (mid + 1 > x/(mid + 1))
+                    return mid;
+                left = mid + 1;
             }
         }
     }

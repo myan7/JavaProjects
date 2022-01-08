@@ -14,7 +14,7 @@ import java.util.List;
         Postorder traversal will display the tree as [4 5 2 3 1]
 */
 
-public class EASY_094_BinaryTreePostorderTraversal {
+public class EASY_094_145_BinaryTreePostorderTraversal {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
         if(root == null) return ans;

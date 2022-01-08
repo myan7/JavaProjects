@@ -14,7 +14,7 @@ import java.util.List;
         Pre order will be display the tree as [1 2 4 5 3]
         */
 
-public class EASY_094_BinaryTreePreorderTraversal {
+public class EASY_094_144_BinaryTreePreorderTraversal {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
         if(root == null)

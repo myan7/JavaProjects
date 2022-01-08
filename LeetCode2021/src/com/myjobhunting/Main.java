@@ -2,11 +2,30 @@ package com.myjobhunting;
 
 import com.sun.source.tree.Tree;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
         /* testing code starts here */
+        Amazon_OA_Demo ans = new Amazon_OA_Demo();
+        int[] states = {1,0,0,0,0,1,0,0};
+        List<Integer> res = ans.cellCompete(states,2);
+        System.out.println(res);
 
+
+        /*
+        ListNode node4 = new ListNode(-4);
+        ListNode node3 = new ListNode(0,node4);
+        ListNode node2 = new ListNode(2,node3);
+        ListNode head  = new ListNode(3,node2);
+        node4.next = node2;
+
+        EASY_141_LinkedListCycle ans = new EASY_141_LinkedListCycle();
+        System.out.println(ans.hasCycle(head));
+        */
+
+        /*
         TreeNode ll2 = null;
         TreeNode lr2 = null;
         TreeNode rl2 = new TreeNode(15);
@@ -16,7 +35,7 @@ public class Main {
         TreeNode root = new TreeNode(3,l1,r1);
         EASY_111_MinimumDepthofBinaryTree sol = new EASY_111_MinimumDepthofBinaryTree();
         System.out.println(sol.minDepth2(root));
-
+        */
         /*EASY_110_BalancedBinaryTree solution = new EASY_110_BalancedBinaryTree();
         System.out.println(solution.isBalanced(root));*/
 
@@ -25,10 +44,10 @@ public class Main {
         TreeNode left = new TreeNode(2,left1,left2);
         TreeNode right = new TreeNode(3);
         TreeNode root = new TreeNode(1,left,right);
-*/
+
         EASY_104_MaximumDepthofBinaryTree solution = new EASY_104_MaximumDepthofBinaryTree();
         System.out.println(solution.maxDepth2(root));
-
+        */
         /*EASY_094_BinaryTreeInorderTraversal inorder = new EASY_094_BinaryTreeInorderTraversal();
         System.out.println(inorder.inorderTraversal(root));
 

@@ -1,7 +1,7 @@
 package com.myjobhunting;
 
 public class EASY_070_ClimbingStairs {
-
+//fibonacci
     public int climbStairs(int n) {
         int[] ways = new int[n+1];
         if ( n == 1 )

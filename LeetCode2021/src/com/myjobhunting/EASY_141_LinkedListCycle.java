@@ -2,25 +2,35 @@ package com.myjobhunting;
 
 // https://leetcode.com/problems/linked-list-cycle/
 public class EASY_141_LinkedListCycle {
-    public boolean hasCycle(ListNode head)
-    {
-        if(head == null) {
-            return false;
-        }
-        else
+
+    public boolean hasCycle(ListNode head) {
+
+        ListNode walker = head;
+        ListNode runner = head;
+        while(runner != null && runner.next != null)
         {
-            ListNode walker = head;
-            ListNode runner = head;
-            while(runner.next != null && runner.next.next != null)
-            {
-                walker = walker.next;
-                runner = runner.next.next;
-                if(walker == runner) return true;
-            }
+            walker = walker.next;
+            runner = runner.next.next;
+            if (runner == walker)
+                return true;
         }
         return false;
     }
 
+    public boolean hasCycle1(ListNode head)
+    {
+        for(ListNode slow = head, fast = head; fast != null; slow = slow.next, fast = fast.next)
+        {
+            fast = fast.next;
+            if(fast == null)
+                break;
+            else if(slow == fast)
+                return true;
+        }
+        return false;
+    }
+
+    // what is this???? shitty code
     public boolean hasCycle2(ListNode head) {
         ListNode p = head,pre = head;
         while(p != null && p.next != null){
@@ -30,6 +40,5 @@ public class EASY_141_LinkedListCycle {
             pre = p;
         }
         return false;
-
     }
 }

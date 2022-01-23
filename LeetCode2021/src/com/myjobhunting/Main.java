@@ -1,5 +1,6 @@
 package com.myjobhunting;
 
+import com.practice.Learning_DP;
 import com.sun.source.tree.Tree;
 
 import java.util.List;
@@ -8,11 +9,17 @@ public class Main {
 
     public static void main(String[] args) {
         /* testing code starts here */
+
+
+
+
+
+        /*
         Amazon_OA_Demo ans = new Amazon_OA_Demo();
         int[] states = {1,0,0,0,0,1,0,0};
         List<Integer> res = ans.cellCompete(states,2);
         System.out.println(res);
-
+        */
 
         /*
         ListNode node4 = new ListNode(-4);

@@ -1,7 +1,5 @@
 package com.myjobhunting;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.HashMap;
 // https://leetcode.com/problems/roman-to-integer/
 public class EASY_013_RomantoInteger {
@@ -33,7 +31,7 @@ public class EASY_013_RomantoInteger {
         };
     }
 
-    public int romanToInt2(@NotNull String s) {
+    public int romanToInt2(String s) {
         char[] charArr = s.toCharArray();
         int ans;
         HashMap<Character,Integer> kvMap = new HashMap<>();

@@ -13,7 +13,6 @@ public class Main {
 
 
 
-
         /*
         Amazon_OA_Demo ans = new Amazon_OA_Demo();
         int[] states = {1,0,0,0,0,1,0,0};

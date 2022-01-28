@@ -3,12 +3,10 @@ package com.myjobhunting;
 
 /* The isBadVersion API is defined in the parent class VersionControl.
       boolean isBadVersion(int version); */
-class VersionControl // just mimic the structure
+abstract class VersionControl // just mimic the structure
 {
-    public boolean isBadVersion(int version)
-    {
-        return true;
-    }
+    int version = 0;
+    abstract boolean isBadVersion(int version);
 }
 
 public class EASY_278_FirstBadVersion extends VersionControl{
@@ -22,7 +20,7 @@ public class EASY_278_FirstBadVersion extends VersionControl{
             if(!isBadVersion(mid))
                 begin = mid+1;
             else
-                end = mid;
+                end = mid;// want to keep the first bad version
         }
         return begin;
     }
@@ -32,12 +30,38 @@ public class EASY_278_FirstBadVersion extends VersionControl{
         while (left < right) {
             int mid = left + (right - left)/2;
             if (isBadVersion(mid)) {
-                right = mid;
+                right = mid; // want to keep the first bad version
             } else {
                 left = mid + 1;
             }
         }
 
         return right;
+    }
+
+    public int firstBadVersion3(int n) {
+        int left = 0;
+        int right = n;
+
+        while(left <= right)
+        {
+            int mid = left + (right - left)/2;
+            if(!isBadVersion(mid))
+            {
+                left = mid+1;
+            }
+            else
+            {
+                right = mid-1;
+            }
+        }
+        return left;
+
+    }
+    @Override
+    boolean isBadVersion(int version) {
+        if(super.version == version)
+            return true;
+        return false;
     }
 }

@@ -10,7 +10,12 @@ public class Main {
     public static void main(String[] args) {
         /* testing code starts here */
 
-
+        /*
+        Medium 3 longest string without repeating char
+         */
+        MEDIUM_3_LongestSubstringWithoutRepeatingCharacters solution = new MEDIUM_3_LongestSubstringWithoutRepeatingCharacters();
+        String test = "bbbbbb";
+        int ans = solution.lengthOfLongestSubstring(test);
 
 
 

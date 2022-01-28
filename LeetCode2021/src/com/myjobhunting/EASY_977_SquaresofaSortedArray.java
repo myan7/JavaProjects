@@ -23,10 +23,32 @@ public class EASY_977_SquaresofaSortedArray {
         return ans;
     }
 
+    public int[] sortedSquares3(int[] nums) {
+        int left = 0, right = nums.length-1;
+        int[] ans = new int[nums.length];
+        int index = right; // starting from the most right, save the larger one.
+        while( left <= right)
+        {
+            if(nums[left] * nums[left] > nums[right]*nums[right])
+            {
+                ans[index] = nums[left]*nums[left];
+                left++;
+                index--;
+            }
+            else
+            {
+                ans[index] = nums[right]*nums[right];
+                right--;
+                index--;
+            }
+        }
+        return ans;
+    }
+
     public int[] sortedSquares1(int[] nums) {
         int[] res = new int[nums.length];
         int i = 0, //i is left pointer of array (starts at 0)
-                j = nums.length-1; //j is right pointer of array (starts at end of nums)
+            j = nums.length-1; //j is right pointer of array (starts at end of nums)
         while(i <= j){ //while the two pointers have not crossed
             if(Math.abs(nums[i]) > Math.abs(nums[j])){
                 res[j-i] = nums[i]*nums[i];
@@ -53,6 +75,8 @@ public class EASY_977_SquaresofaSortedArray {
         }
         return arr;
     }
+
+
 
 
 }

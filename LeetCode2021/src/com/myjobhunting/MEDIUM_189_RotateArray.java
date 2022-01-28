@@ -29,24 +29,27 @@ public class MEDIUM_189_RotateArray {
 
     // time limit exceed
     public void rotate2(int[] nums, int k) {
-        int count = 0;
-        int[] temp = new int[nums.length];
-        // copy the array to temp
-        for(int i = 0; i < nums.length; i++)
+        int len = nums.length;
+        int[] temp = new int[len];
+        // what if k is larger than nums.length
+        k = k%len;
+
+        int index = 0;
+        // you know the input, and the output, copy the moving parts separately
+        // part 1 (k - len)
+        for( int i = k; i < len; i++ )
         {
-            temp[i] = nums[i];
+            temp[i] = nums[index++];
         }
-        while(count < k )
+        // part 2 0 - (k -1)
+        for( int i = 0; i < k; i++ )
         {
-            for(int i = 0; i < nums.length; i++)
-            {
-                temp[i] = nums[i];
-            }
-            int t = nums[nums.length-1];
-            for(int i = 1; i < nums.length; i++)
-                nums[i] = temp[i-1];
-            nums[0] = t;
-            count++;
+            temp[i] = nums[index++];
+        }
+        // copy everything to nums
+        for(int i = 0; i < len; i++)
+        {
+            nums[i] = temp[i];
         }
     }
 

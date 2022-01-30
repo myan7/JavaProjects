@@ -11,12 +11,37 @@ public class Main {
         /* testing code starts here */
 
         /*
-        Medium 3 longest string without repeating char
+        EASY_263 Ugly number
          */
+        EASY_263_UglyNumber solution = new EASY_263_UglyNumber();
+
+        /*
+        EASY 231 power of two
+
+        int a = 5;
+
+        while(a > 0 && a%2 == 0)
+        {
+            System.out.println(a);
+            a >>= 1;
+        }
+        System.out.println(a);
+*/
+        /*
+        EASY 217 contains duplicate
+
+        int[] a = {1,2,3,4,5,2,2};
+        EASY_217_ContainsDuplicate solution = new EASY_217_ContainsDuplicate();
+        System.out.println(solution.containsDuplicate2(a));
+*/
+
+        /*
+        Medium 3 longest string without repeating char
+
         MEDIUM_3_LongestSubstringWithoutRepeatingCharacters solution = new MEDIUM_3_LongestSubstringWithoutRepeatingCharacters();
         String test = "bbbbbb";
         int ans = solution.lengthOfLongestSubstring(test);
-
+        */
 
         /*
         Amazon_OA_Demo ans = new Amazon_OA_Demo();

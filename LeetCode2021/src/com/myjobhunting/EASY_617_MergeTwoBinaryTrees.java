@@ -20,6 +20,37 @@ public class EASY_617_MergeTwoBinaryTrees {
         return root1;
     }
 
+    public TreeNode mergeTrees2(TreeNode root1, TreeNode root2) {
+        TreeNode ans = new TreeNode();
+        if(root1 == null)
+            return root2;
+        if(root2 == null)
+            return root1;
+        //if(root1 != null && root2 != null)  //will always be true;
+            ans. val = root1.val + root2.val;
+
+        ans.left = mergeTrees(root1.left, root2.left);
+        ans.right = mergeTrees(root1.right, root2.right);
+
+        return ans;
+    }
+
+    public TreeNode mergeTrees3(TreeNode root1, TreeNode root2) {
+        if(root1 == null && root2 == null)
+            return null;
+        if(root1 == null)
+            return root2;
+        if(root2 == null)
+            return root1;
+
+        //if(root1 != null && root2 != null) //will always be true;
+            root1. val = root1.val + root2.val;
+
+        root1.left = mergeTrees(root1.left, root2.left);
+        root1.right = mergeTrees(root1.right, root2.right);
+
+        return root1;
+    }
 
 //root1 - [9,-1,null,-2,0,-4,null,null,8,-5,-3,6,null,null,null,null,null,null,7]
 //root2 - [-1,-2,0,null,null,null,8,6,null,null,7]

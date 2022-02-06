@@ -18,28 +18,39 @@ add one
 public class EASY_190_ReverseBits {
     // you need treat n as an unsigned value
 
+    // remember this
+    // 0 & 1 = 0, 1 & 1 = 1
+    // what we need to do is to check if it is 1 or 0 for each bit.
     public int reverseBits1(int n) {
 //https://leetcode.com/submissions/detail/110053926/
-        if (n == 0) return 0;
-
         int result = 0;
         for (int i = 0; i < 32; i++) {
-            //System.out.println("result in binary is "+ Integer.toBinaryString(result));
             result <<= 1;
-            //System.out.println("after <<= 1, result in binary is "+ Integer.toBinaryString(result));
-            //System.out.println("n in binary is "+ Integer.toBinaryString(n));
+                    // shift all bits to the left by 1, 001 <<= 1 => 010
             if ((n & 1) == 1)
             {
-                //.out.println(" (n & 1) == 1 is because "+ Integer.toBinaryString(n));
+                //check (n & 1) == 1, if 1, add 1 to result
                 result++;
             }
-            n >>= 1;
-            //System.out.println("after >>= 1, n in binary is "+ Integer.toBinaryString(n));
+            n >>= 1; //shift all bits to the right by 1, 010 >>= 1 => 001
         }
         return result;
     }
 
     public int reverseBits2(int n) {
+        int result = 0;
+        for( int i = 0; i <32 ; i++)
+        {
+            int bit = (n >> i) & 1; // check if 1 at the i-th position of n
+            if( bit == 1)
+            {
+                result |= (bit << (31-i)); // update the (31-i)-th position of result to be 1
+            }
+        }
+        return result;
+    }
+
+    public int reverseBits3(int n) {
 
         n = n>>>16 | n << 16; //2byte swap
         n = (n&0xff00ff00)>>>8 | (n&0x00ff00ff) <<8; //1byte swap
@@ -49,6 +60,20 @@ public class EASY_190_ReverseBits {
 
         return n;
     }
+
+
+    public int reverseBits4(int n) {
+//https://leetcode.com/submissions/detail/110053719/
+        int result = 0;
+        for (int i = 0; i < 32; i++) {
+            result += n & 1;
+            n >>>= 1;   // CATCH: must do unsigned shift
+            if (i < 31) // CATCH: for last digit, don't shift!
+                result <<= 1;
+        }
+        return result;
+    }
+
     // this is wrong. because it doesn't see n as unsigned integer.
     public int reverseBits(int n) {
         int[] bits = convertBit2Reverse(n);
@@ -76,18 +101,5 @@ public class EASY_190_ReverseBits {
         }
         return bits;
     }
-
-    public int reverseBits3(int n) {
-//https://leetcode.com/submissions/detail/110053719/
-        int result = 0;
-        for (int i = 0; i < 32; i++) {
-            result += n & 1;
-            n >>>= 1;   // CATCH: must do unsigned shift
-            if (i < 31) // CATCH: for last digit, don't shift!
-                result <<= 1;
-        }
-        return result;
-    }
-
 
 }

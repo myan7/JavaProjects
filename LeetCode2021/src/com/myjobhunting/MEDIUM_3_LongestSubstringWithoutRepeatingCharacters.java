@@ -46,4 +46,30 @@ public class MEDIUM_3_LongestSubstringWithoutRepeatingCharacters {
         }
         return max;
     }
+
+    public int lengthOfLongestSubstring2(String s) {
+        char[] ascii = new char[256];
+        int start = 0, end = 0, max = 0;
+
+        for(;start < s.length() && end < s.length();)
+        {
+            char op = s.charAt(start);
+            char cl = s.charAt(end);
+
+            if(ascii[cl] == 0 )
+            {
+                ascii[cl]++;
+                end++;
+            }
+            else
+            {
+                ascii[op]--;
+                start++;
+            }
+
+            if(end >= start)
+                max = Math.max(end - start, max);
+        }
+        return max;
+    }
 }

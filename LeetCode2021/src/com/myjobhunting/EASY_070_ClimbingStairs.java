@@ -1,28 +1,8 @@
 package com.myjobhunting;
 
 public class EASY_070_ClimbingStairs {
-//fibonacci
-    public int climbStairs(int n) {
-        int[] ways = new int[n+1];
-        if ( n == 1 )
-            ways[1] = 1;
-        else if( n == 2 )
-        {
-            ways[1] = 1;
-            ways[2] = 2;
-        }
-        else
-        {
-            ways[1] = 1;
-            ways[2] = 2;
-            for(int i = 3; i <=n ; i++ )
-                ways[i] = ways[i-1]+ ways[i-2];
-        }
-        return ways[n];
-    }
-
     //DP
-    public int climbStairs2(int n) {
+    public int climbStairs(int n) {
         int[] dp = new int[n + 1];
         dp[0] = 1;
         dp[1] = 1;
@@ -32,22 +12,35 @@ public class EASY_070_ClimbingStairs {
         return dp[n];
     }
 
-    /*Time Limit Exceeded*/
-    public int climbStairs3(int n) {
-        // stair case 1: [1]                                                                                     1 way
-        // stair case 2: [1,1], [2]                                                                              2 ways
-        // stair case 3: [1,1,1], [1,2], [2,1]                                                                   3 ways
-        // stair case 4: [1,1,1,1],[1,1,2],[1,2,1],[2,1,1],[2,2]                                                 5 ways
-        // stair case 5: [1,1,1,1,1], [1,1,1,2], [1,1,2,1], [1,2,1,1], [1,2,2],[2,1,1,1], [2,1,2], [2,2,1]       8 ways
-        int ways = 0;
-        if( n == 1 )
+    //or
+    public int climbStairs1(int n) {
+        // 1 step 1 way:           1
+        // 2 steps 2 ways:       1,1 ;      2
+        // 3 steps 3 ways:     1,1,1;     1,2;     2;1
+        // 4 steps 5 ways:   1,1,1,1;   1,1,2;   1,2,1;   2,1,1;   2,2
+        // 5 steps 8 ways: 1,1,1,1,1; 1,1,1,2; 1,1,2,1; 1,2,1,1; 1,2,2; 2,1,1,1; 2,1,2; 2,2,1
+        // you can see for 3 steps of staircase, the ways of climbing it is actually ways of 1 step + ways of 2 steps
+        // for 4 steps of staircase, the ways of climbing it is actually ways of 2 steps + ways of 3 steps
+        // recursive will exceed the time limit /*Time Limit Exceeded*/
+        /*
+        if(n == 1)
             return 1;
-        else if( n == 2 )
+        else if(n == 2)
             return 2;
         else
+            return climbStairs(n-2) + climbStairs(n-1);
+        */
+        if(n == 1)
+            return 1;
+        else if(n == 2)
+            return 2;
+        int[] ways = new int[n];
+        ways[0] = 1;
+        ways[1] = 2;
+        for( int i = 2; i < n ; i++ )
         {
-            ways += climbStairs(n-1) + climbStairs(n-2);
+            ways[i] = ways[i-2] + ways[i-1];
         }
-        return ways;
+        return ways[n-1];
     }
 }

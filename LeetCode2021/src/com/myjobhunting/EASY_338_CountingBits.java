@@ -13,6 +13,15 @@ public class EASY_338_CountingBits {
         return res;
     }
 
+    public int[] countBits1(int n) {
+        int[] res = new int[n+1];
+        for(int i = 0; i<=n; i++)
+        {
+            res[i] = res[i>>1]+ (i&1);
+        }
+        return res;
+    }
+
     public int[] countBits0(int n) {
         int[] ans = new int[n+1];
         for(int i = 1; i < n+1 ; i++)

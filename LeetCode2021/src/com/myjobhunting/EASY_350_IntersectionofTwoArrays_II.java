@@ -5,7 +5,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EASY_350_IntersectionofTwoArrays_II {
+
     public int[] intersect(int[] nums1, int[] nums2) {
+
+        int[] numbers = new int[1001];
+        ArrayList<Integer> List = new ArrayList<>();
+        for (int num : nums1) {
+            numbers[num]++;
+        }
+        for (int num : nums2) {
+            if (numbers[num] > 0) {
+                List.add(num);
+                numbers[num]--;
+            }
+        }
+        int[] ansArr = new int[List.size()];
+        for (int i = 0; i < List.size(); i++) {
+            ansArr[i] = List.get(i);
+        }
+        return ansArr;
+    }
+
+    public int[] intersect0(int[] nums1, int[] nums2) {
         int[] nums1Freq = new int[1001];
         int[] nums2Freq = new int[1001];
         for(int i: nums1)
@@ -31,8 +52,6 @@ public class EASY_350_IntersectionofTwoArrays_II {
                 index1++;
                 index2++;
             }
-
-
         }
         int[] ans = new int[common.size()];
         int index = 0;

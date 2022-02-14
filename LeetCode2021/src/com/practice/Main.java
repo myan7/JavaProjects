@@ -3,24 +3,54 @@ package com.practice;
 public class Main {
     public static void main(String[] args)
     {
+        /*
+        MS_OA_003_MinimumAdjacentSwapstoMakePalindrome solution = new MS_OA_003_MinimumAdjacentSwapstoMakePalindrome();
+        String s1 = "bcaab";
+        int ans = solution.minSwaps(s1);
+        System.out.println(ans);
+         */
+
+        /*
+        MS_OA_004_LexcicographicallySmallestString solution = new MS_OA_004_LexcicographicallySmallestString();
+        String t = "abcdea";
+        System.out.println(solution.smallestString(t));
+        */
+
+        ///*
+        MS_OA_007_RemoveOne5 solution = new MS_OA_007_RemoveOne5();
+        int val = -5505;
+        int ans = solution.getMaxbyRemovingOne5(val);
+        System.out.println(ans);
+        //*/
+
+
+
+        /*
+        MS_OA_008_GetSign solution = new MS_OA_008_GetSign();
+        int[] t = {1,2,0,-3};
+        System.out.println(solution.getSign(t));
+        */
+
+        /*
         Learning_DP test = new Learning_DP();
         // for time lapse calculation
         long start = 0, end = 0;
 
-        /*
+
         canSum test
-         */
         int target = 7;
         int[] numbers = new int[]{2,3,6,9};
         System.out.println(test.canSumRec(target,numbers));
-
+        */
 
         /*
         GridTraveller test
-        */
+
         int[][] matrix = new int[18][18];
         int m = matrix.length;
         int n = matrix[0].length;
+        */
+
         /*
         start = System.currentTimeMillis();
         System.out.println(test.gridTravellerRecur(matrix));

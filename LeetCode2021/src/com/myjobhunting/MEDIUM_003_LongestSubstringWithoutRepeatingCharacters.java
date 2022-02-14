@@ -1,6 +1,6 @@
 package com.myjobhunting;
 
-public class MEDIUM_3_LongestSubstringWithoutRepeatingCharacters {
+public class MEDIUM_003_LongestSubstringWithoutRepeatingCharacters {
     public int lengthOfLongestSubstring(String s) {
         char[] ascii = new char[256];
         int left = 0, max = 0;
@@ -51,8 +51,7 @@ public class MEDIUM_3_LongestSubstringWithoutRepeatingCharacters {
         char[] ascii = new char[256];
         int start = 0, end = 0, max = 0;
 
-        for(;start < s.length() && end < s.length();)
-        {
+        while (start < s.length() && end < s.length()) {
             char op = s.charAt(start);
             char cl = s.charAt(end);
 

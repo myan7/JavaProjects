@@ -1,6 +1,6 @@
 package com.myjobhunting;
 
-public class MEDIUM_19_RemoveNthNodeFromEndofList {
+public class MEDIUM_019_RemoveNthNodeFromEndofList {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode sentinel = new ListNode();
         sentinel.next = head;

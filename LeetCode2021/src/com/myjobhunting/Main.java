@@ -11,10 +11,23 @@ public class Main {
         /* testing code starts here */
 
         /*
-        EASY_263 Ugly number
+        MEDIUM_006_ZigzagConversion
          */
-        EASY_263_UglyNumber solution = new EASY_263_UglyNumber();
+        MEDIUM_006_ZigzagConversion solution = new MEDIUM_006_ZigzagConversion();
+        System.out.println(solution.convert("PAYPALISHIRING", 4));
 
+
+        /*
+        MEDIUM 8. String to Integer (atoi)
+
+        MEDIUM_008_StringtoInteger_atoi_ solution = new MEDIUM_008_StringtoInteger_atoi_();
+        System.out.println(solution.myAtoi("    -42"));
+        */
+        /*
+        EASY_263 Ugly number
+
+        EASY_263_UglyNumber solution = new EASY_263_UglyNumber();
+        */
         /*
         EASY 231 power of two
 

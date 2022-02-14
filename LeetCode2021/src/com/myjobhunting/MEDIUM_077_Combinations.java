@@ -16,7 +16,7 @@ import java.util.List;
         [3,4], // third run
         ]
         */
-public class MEDIUM_77_Combinations {
+public class MEDIUM_077_Combinations {
     public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> results = new ArrayList<>();
         if( n <= 0 || k <= 0 )
@@ -30,7 +30,7 @@ public class MEDIUM_77_Combinations {
             results.add(new ArrayList<>(curSeq));
         else
         {
-            for(int i = start; i <= n-k+1; i++)
+            for(int i = start; i <= n-k+1; i++) // n-k+1 is key with it 2ms, without it 27ms
             {
                 curSeq.add(i);
                 combineHelper(n,k-1,i+1,results,curSeq);
@@ -39,6 +39,7 @@ public class MEDIUM_77_Combinations {
         }
     }
 
+    //65 ms
     public List<List<Integer>> combine1(int n, int k) {
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> ls = new ArrayList();

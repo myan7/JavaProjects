@@ -8,10 +8,10 @@ import java.util.List;
 Input: candidates = [2,3,5], target = 8
 Output: [[2,2,2,2],[2,3,3],[3,5]]
  */
-public class MEDIUM_39_CombinationSum {
+public class MEDIUM_039_CombinationSum {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> res = new ArrayList<>();
-        backTracking(candidates,0,target,new ArrayList<Integer>(), res);
+        backTracking(candidates,0,target, new ArrayList<>(), res);
         return res;
     }
 

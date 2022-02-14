@@ -1,6 +1,6 @@
 package com.myjobhunting;
 
-public class MEDIUM_50_Pow_x_n_ {
+public class MEDIUM_050_Pow_x_n_ {
     public double myPow(double x, int n) {
         double temp=x;
         if(n==0)

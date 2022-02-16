@@ -1,4 +1,4 @@
-package com.myjobhunting;
+package com.practice;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -72,5 +72,6 @@ public class Amazon_OA_Demo {
         {
             states[i] = ans[i];
         }
+        // last for loop can be replaced with System.arraycopy(ans, 0, states, 0, states.length);
     }
 }

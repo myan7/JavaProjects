@@ -27,7 +27,28 @@ public class MEDIUM_189_RotateArray {
         }
     }
 
-    // time limit exceed
+    public void rotate0(int[] nums, int k) {
+        //nums = [1,2,3,4,5,6,7], k = 3
+        //output [5,6,7,1,2,3,4]
+
+        int len = nums.length;
+        int[] ans = new int[len];
+        int index = 0;
+        k %= len;
+        for(int i = len - k; i< len; i++)
+        {
+            ans[index++] = nums[i];
+        }
+        for(int i = 0; i < len-k; i++)
+        {
+            ans[index++] = nums[i];
+        }
+        for(int i = 0 ; i < len; i++)
+        {
+            nums[i] = ans[i];
+        }
+    }
+
     public void rotate2(int[] nums, int k) {
         int len = nums.length;
         int[] temp = new int[len];
@@ -36,7 +57,7 @@ public class MEDIUM_189_RotateArray {
 
         int index = 0;
         // you know the input, and the output, copy the moving parts separately
-        // part 1 (k - len)
+        // part 1 (k -> len)
         for( int i = k; i < len; i++ )
         {
             temp[i] = nums[index++];
@@ -52,5 +73,4 @@ public class MEDIUM_189_RotateArray {
             nums[i] = temp[i];
         }
     }
-
 }

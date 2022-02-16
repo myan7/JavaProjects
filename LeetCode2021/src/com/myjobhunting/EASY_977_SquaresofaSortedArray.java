@@ -7,39 +7,20 @@ import java.util.Arrays;
 
 public class EASY_977_SquaresofaSortedArray {
     public int[] sortedSquares(int[] nums) {
+        int left = 0 , right = nums.length-1;
+        int index = right;
         int[] ans = new int[nums.length];
-        int i = 0;
-        int j = nums.length - 1;
-        int cur = nums.length - 1;
-        while (i <= j) {
-            if (Math.abs(nums[j]) >= Math.abs(nums[i])) {
-                ans[cur--] = nums[j] * nums[j];
-                j--;
-            } else {
-                ans[cur--] = nums[i] * nums[i];
-                i++;
-            }
-        }
-        return ans;
-    }
-
-    public int[] sortedSquares3(int[] nums) {
-        int left = 0, right = nums.length-1;
-        int[] ans = new int[nums.length];
-        int index = right; // starting from the most right, save the larger one.
-        while( left <= right)
+        while(left <= right)
         {
-            if(nums[left] * nums[left] > nums[right]*nums[right])
+            if(Math.abs(nums[left]) < Math.abs(nums[right]))
             {
-                ans[index] = nums[left]*nums[left];
-                left++;
-                index--;
+                ans[index--] = nums[right]* nums[right];
+                right--;
             }
             else
             {
-                ans[index] = nums[right]*nums[right];
-                right--;
-                index--;
+                ans[index--] = nums[left]*nums[left];
+                left++;
             }
         }
         return ans;

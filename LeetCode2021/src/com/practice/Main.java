@@ -4,6 +4,13 @@ public class Main {
     public static void main(String[] args)
     {
         /*
+        MS_OA_10
+         */
+        MS_OA_010_CheckifTwoStringsoftheSamePattern solution = new MS_OA_010_CheckifTwoStringsoftheSamePattern();
+        System.out.println(solution.istheSamePattern("A2le", "1P2e"));
+        System.out.println(solution.istheSamePattern("a9b", "a9a"));
+
+        /*
         MS_OA_003_MinimumAdjacentSwapstoMakePalindrome solution = new MS_OA_003_MinimumAdjacentSwapstoMakePalindrome();
         String s1 = "bcaab";
         int ans = solution.minSwaps(s1);
@@ -16,14 +23,12 @@ public class Main {
         System.out.println(solution.smallestString(t));
         */
 
-        ///*
+        /*
         MS_OA_007_RemoveOne5 solution = new MS_OA_007_RemoveOne5();
         int val = -5505;
         int ans = solution.getMaxbyRemovingOne5(val);
         System.out.println(ans);
-        //*/
-
-
+        */
 
         /*
         MS_OA_008_GetSign solution = new MS_OA_008_GetSign();

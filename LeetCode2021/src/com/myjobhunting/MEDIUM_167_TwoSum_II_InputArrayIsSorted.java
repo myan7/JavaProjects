@@ -4,7 +4,7 @@ package com.myjobhunting;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EASY_167_TwoSum_II_InputArrayIsSorted {
+public class MEDIUM_167_TwoSum_II_InputArrayIsSorted {
 
     // two pointers
     public int[] twoSum(int[] numbers, int target) {

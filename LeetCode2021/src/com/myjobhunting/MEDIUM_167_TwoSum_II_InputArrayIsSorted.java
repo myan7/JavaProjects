@@ -8,27 +8,21 @@ public class MEDIUM_167_TwoSum_II_InputArrayIsSorted {
 
     // two pointers
     public int[] twoSum(int[] numbers, int target) {
+        int left = 0, right = numbers.length -1;
         int[] ans = new int[2];
-        int low = 0;
-        int high = numbers.length-1;
-
-        while(low<high)
+        while(left < right)
         {
-            int sum = numbers[low]+numbers[high];
-            if(sum>target)
+            int x = numbers[left], y = numbers[right];
+            if(x + y == target)
             {
-                high--;
+                ans[0] = left+1;
+                ans[1] = right+1;
+                return ans;
             }
-            else if(target>sum)
-            {
-                low++;
-            }
+            else if(x + y < target)
+                left++;
             else
-            {
-                ans[0] = low+1;
-                ans[1] = high+1;
-                break;
-            }
+                right--;
         }
         return ans;
     }

@@ -6,8 +6,22 @@ import java.util.Map;
 
 public class EASY_1512_NumberofGoodPairs {
 
-
     public int numIdenticalPairs(int[] nums) {
+        int count = 0;
+        int[] values = new int[101];
+        for(int i : nums)
+        {
+            values[i]++;
+        }
+        for(int v : values)
+        {
+            if(v > 1)
+                count += v*(v-1)/2;
+        }
+        return count;
+    }
+
+    public int numIdenticalPairs1(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
         int result = 0;
         for(int i: nums) // count the appearance of each item;

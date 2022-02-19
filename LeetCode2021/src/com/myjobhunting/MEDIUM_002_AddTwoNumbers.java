@@ -14,7 +14,6 @@ Output:      [8,9,9,9,0,0,0,1]
 
 public class MEDIUM_002_AddTwoNumbers {
 
-
     public ListNode addTwoNumbers00(ListNode l1, ListNode l2) {
         ListNode curr = new ListNode(0);
         ListNode sentinel = curr;

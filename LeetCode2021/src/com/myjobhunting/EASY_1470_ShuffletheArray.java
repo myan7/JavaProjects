@@ -4,15 +4,14 @@ package com.myjobhunting;
 public class EASY_1470_ShuffletheArray {
 
     public int[] shuffle(int[] nums, int n) {
-        int[] output = new int[nums.length];
-        int j = 0;
-        for(int i = 0; i < n; i++){
-            {
-                output[j++] = nums[i];
-                output[j++] = nums[i+n];
-            }
+        int[] ans = new int[nums.length];
+        int index = 0;
+        for(int i = 0; i < n; i++)
+        {
+            ans[index++] = nums[i];
+            ans[index++] = nums[i+n];
         }
-        return output;
+        return ans;
     }
 
     public int[] shuffle0(int[] nums, int n) {
@@ -30,4 +29,17 @@ public class EASY_1470_ShuffletheArray {
         }
         return ans;
     }
+
+    public int[] shuffle1(int[] nums, int n) {
+        int j=n;
+        int k=0;
+        int[] a=new int[2*n];
+        for(int i=0;i<n;i++)
+        {
+            a[k++]=nums[i];
+            a[k++]=nums[j++];
+        }
+        return a;
+    }
+
 }

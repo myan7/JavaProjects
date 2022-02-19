@@ -3,14 +3,10 @@ package com.myjobhunting;
 public class EASY_027_RemoveElement {
     public int removeElement(int[] nums, int val) {
         int index = 0;
-
-        for(int i = 0; i<nums.length-1; i++)
+        for(int i = 0; i < nums.length; i++)
         {
             if(nums[i] != val)
-            {
-                index++;
-                nums[index-1] = nums[i];
-            }
+                nums[index++] = nums[i];
         }
         return index;
     }
@@ -32,12 +28,10 @@ public class EASY_027_RemoveElement {
 
     public int removeElement3(int[] nums, int val) {
         int index = 0;
-        for(int e : nums)
+        for(int e: nums)
         {
             if(e != val)
-            {
                 nums[index++] = e;
-            }
         }
         return index;
     }

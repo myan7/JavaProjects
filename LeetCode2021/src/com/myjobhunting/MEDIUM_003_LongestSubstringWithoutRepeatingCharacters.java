@@ -1,6 +1,30 @@
 package com.myjobhunting;
 
 public class MEDIUM_003_LongestSubstringWithoutRepeatingCharacters {
+
+    public int lengthOfLongestSubstring0(String s) {
+        // two pointers
+        int left = 0, right = 0, max = 0;
+        // s consists of English letters, digits, symbols and spaces.
+        char[] alphabet = new char[256];
+        while(right < s.length())
+        {
+            char curr = s.charAt(right);
+            if(alphabet[curr] > 0)
+            {
+                alphabet[s.charAt(left)]--;
+                left++;
+            }
+            else
+            {
+                alphabet[curr]++;
+                right++;
+            }
+            max = Math.max(max, right - left);
+        }
+        return max;
+    }
+
     public int lengthOfLongestSubstring(String s) {
         char[] ascii = new char[256];
         int left = 0, max = 0;

@@ -9,13 +9,23 @@ public class Main {
 
     public static void main(String[] args) {
         /* testing code starts here */
-
+        /*
+        EASY_832_FlippinganImage
+         */
+        EASY_832_FlippinganImage solution = new EASY_832_FlippinganImage();
+        int[][] image = {{1,1,0},{1,0,1},{0,0,0}};
+        solution.flipAndInvertImage(image);
+        for(int[] i : image)
+        {
+            for (int j : i)
+                System.out.println(i[j]);
+        }
         /*
         MEDIUM_006_ZigzagConversion
-         */
+
         MEDIUM_006_ZigzagConversion solution = new MEDIUM_006_ZigzagConversion();
         System.out.println(solution.convert("PAYPALISHIRING", 4));
-
+        */
 
         /*
         MEDIUM 8. String to Integer (atoi)

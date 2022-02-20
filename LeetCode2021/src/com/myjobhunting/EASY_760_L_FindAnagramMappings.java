@@ -1,15 +1,15 @@
 package com.myjobhunting;
 // https://leetcode.com/problems/find-anagram-mappings/
 /*
-You are given two integer arrays nums1 and nums2
+You are given two integer arrays, nums1 and nums2
 where nums2 is an anagram of nums1. Both arrays may contain duplicates.
 
 Return an index mapping array mapping from nums1 to nums2
 where mapping[i] = j means the ith element in nums1 appears in nums2 at index j.
 If there are multiple answers, return any of them.
 
-An array a is an anagram of an array b means
-b is made by randomizing the order of the elements in a.
+An array, a, is an anagram of an array, b,
+means b is made by randomizing the order of the elements in a.
  */
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EASY_760_FindAnagramMappings {
+public class EASY_760_L_FindAnagramMappings {
     public int[] anagramMappings(int[] nums1, int[] nums2) {
         Map<Integer, Integer> map = new HashMap<>();
         // Both arrays may contain duplicates.
@@ -39,8 +39,7 @@ public class EASY_760_FindAnagramMappings {
     public int[] anagramMappings0(int[] nums1, int[] nums2) {
         // Both arrays may contain duplicates.
         Map<Integer, List<Integer>> map = new HashMap<>();
-        // turns out that map will not accept the same k-v pair.
-
+        // turns out that map will not accept the same k-v pair, but the same key can be added with a different value
         for(int i = 0; i < nums2.length; i++)
         {
             if(map.containsKey(nums2[i]))

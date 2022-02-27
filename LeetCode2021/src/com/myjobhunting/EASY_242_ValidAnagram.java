@@ -59,7 +59,22 @@ public class EASY_242_ValidAnagram {
         return Arrays.equals(arrS,arrT);
     }
 
+    // if you need to use a Map for a more complicated problem, you can use String as a pattern see 49. Group Anagrams
+    public boolean isAnagram2(String s, String t) {
+        if(s.length() != t.length())
+            return false;
+        char[] sa = s.toCharArray();
+        char[] ta = t.toCharArray();
+        Arrays.sort(sa);
+        Arrays.sort(ta);
+        String ss = String.valueOf(sa);
+        String ts = String.valueOf(ta);
+
+        return ss.equals(ts);
+    }
+
     // looks like it works, but what if s = "aa", t = "bb"
+    // or "ac" and "bb"
     public boolean isAnagram_fail(String s, String t) {
         int lenS = s.length(), lenT = t.length();
         if(lenS != lenT)

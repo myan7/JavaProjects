@@ -1,6 +1,8 @@
 package com.myjobhunting;
 
 // https://leetcode.com/problems/01-matrix/
+// explanation:
+// https://leetcode.com/problems/01-matrix/discuss/1369741/C%2B%2BJavaPython-BFS-DP-solutions-with-Picture-Clean-and-Concise-O(1)-Space
 
 public class MEDIUM_542_01Matrix {
 
@@ -10,7 +12,7 @@ public class MEDIUM_542_01Matrix {
 
         //iterate thru all the cells, check the top & left cells for the closest 0
         //populate the cells value to be the minimums distance to reach 0 (only taking top & left cells into account)
-        //we will look into the bottom & right cells seperately and then compare both values in the end
+        //we will look into the bottom & right cells separately and then compare both values in the end
         for (int row=0; row<mat.length; row++) {
             for(int col=0; col<mat[0].length; col++){
                 if(mat[row][col] != 0){

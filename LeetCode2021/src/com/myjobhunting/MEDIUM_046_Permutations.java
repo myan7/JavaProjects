@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Medium_046_Permutations {
+public class MEDIUM_046_Permutations {
 
 
     public List<List<Integer>> permute(int[] nums) {
@@ -56,7 +56,7 @@ public class Medium_046_Permutations {
 
     public List<List<Integer>> permute1(int[] nums) {
         // init output list
-        List<List<Integer>> output = new LinkedList();
+        List<List<Integer>> output = new LinkedList<>();
 
         // convert nums into list since the output is a list of lists
         ArrayList<Integer> nums_lst = new ArrayList<>();

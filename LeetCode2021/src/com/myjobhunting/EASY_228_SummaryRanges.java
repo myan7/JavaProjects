@@ -7,7 +7,49 @@ import java.util.List;
 
 public class EASY_228_SummaryRanges {
 
+    // initial solution Runtime: 5 ms, faster than 87.04% of Java online submissions
+    public List<String> summaryRanges00(int[] nums) {
+        List<String> ans = new ArrayList<>();
+        for(int left = 0; left < nums.length; )
+        {
+            int right = left;
+            StringBuilder sb = new StringBuilder();
+            sb.append(nums[left]);
+            while(right < nums.length)
+            {
+                if( right+1 < nums.length && nums[right]+1 == nums[right+1] )
+                    right++;
+                else
+                    break;
+            }
+            if(right != left )
+            {
+                sb.append("->").append(nums[right]);
+            }
+            ans.add(sb.toString());
+            left = right+1;
+        }
+        return ans;
+    }
+
+    // LeetCode solution Runtime: 9 ms, faster than 49.47% of Java online submissions
     public List<String> summaryRanges(int[] nums) {
+        List<String> summary = new ArrayList<>();
+        for (int i = 0, j = 0; j < nums.length; ++j) {
+            // check if j + 1 extends the range [nums[i], nums[j]]
+            if (j + 1 < nums.length && nums[j + 1] == nums[j] + 1)
+                continue;
+            // put the range [nums[i], nums[j]] into the list
+            if (i == j)
+                summary.add(nums[i] + "");
+            else
+                summary.add(nums[i] + "->" + nums[j]);
+            i = j + 1;
+        }
+        return summary;
+    }
+
+    public List<String> summaryRanges1(int[] nums) {
         List<String> result = new ArrayList<>();
         if(nums == null || nums.length == 0){
             return result;

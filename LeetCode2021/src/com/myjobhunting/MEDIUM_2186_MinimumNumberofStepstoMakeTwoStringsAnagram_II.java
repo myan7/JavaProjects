@@ -27,7 +27,7 @@ Constraints:
 1 <= s.length, t.length <= 2 * 105
 s and t consist of lowercase English letters.
  */
-public class EASY_2186_MinimumNumberofStepstoMakeTwoStringsAnagram_II {
+public class MEDIUM_2186_MinimumNumberofStepstoMakeTwoStringsAnagram_II {
 
     public int minSteps(String s, String t) {
         int[] map1 = new int[26];

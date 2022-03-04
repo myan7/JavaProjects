@@ -27,9 +27,45 @@ num does not have any leading zeros except for the zero itself.
  */
 
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class MEDIUM_402_RemoveKDigits {
+
+    /*
+    LeetCode Solution:
+    Runtime: 18 ms, faster than 48.08% of Java online submissions for Remove K Digits.
+    Memory Usage: 51.5 MB, less than 12.67% of Java online submissions for Remove K Digits.
+     */
+    public String removeKdigits1(String num, int k) {
+        LinkedList<Character> stack = new LinkedList<>();
+
+        for(char digit : num.toCharArray()) {
+            while(stack.size() > 0 && k > 0 && stack.peekLast() > digit) {
+                stack.removeLast();
+                k -= 1;
+            }
+            stack.addLast(digit);
+        }
+
+        /* remove the remaining digits from the tail. */
+        for(int i=0; i<k; ++i) {
+            stack.removeLast();
+        }
+
+        // build the final string, while removing the leading zeros.
+        StringBuilder ret = new StringBuilder();
+        boolean leadingZero = true;
+        for(char digit: stack) {
+            if(leadingZero && digit == '0') continue;
+            leadingZero = false;
+            ret.append(digit);
+        }
+
+        /* return the final string  */
+        if (ret.length() == 0) return "0";
+        return ret.toString();
+    }
 
     /* https://www.youtube.com/watch?v=vbM41Zql228&ab_channel=NickWhite
     Greedy with Stack

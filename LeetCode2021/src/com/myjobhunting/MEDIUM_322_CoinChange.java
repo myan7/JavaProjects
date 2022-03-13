@@ -30,7 +30,7 @@ Constraints:
 0 <= amount <= 10^4
  */
 public class MEDIUM_322_CoinChange {
-    // also check LC 2787 minimum time for the total trip.
+    // also check LC 2187 minimum time for the total trip.
     // or like 2 sum, 3 sum, and 4 sum or n sum.
     // this is a DP question.
     /*

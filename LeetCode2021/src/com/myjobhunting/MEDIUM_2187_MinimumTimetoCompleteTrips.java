@@ -39,7 +39,7 @@ Constraints:
  */
 public class MEDIUM_2187_MinimumTimetoCompleteTrips {
 
-    /*
+    /* check LC 322, totally different story
     The idea is given value mid, can we finish totalTrips within mid time.
     We have left and right bound, we want to find mid in the boundary.
      */

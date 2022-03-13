@@ -9,6 +9,10 @@ public class EASY_231_PowerofTwo {
         return n == 1;
     }
 
+    /*
+    Runtime: 0 ms, faster than 100.00% of Java online submissions for Power of Two.
+    Memory Usage: 39.1 MB, less than 66.46% of Java online submissions for Power of Two.
+     */
     public boolean isPowerOfTwo1(int n) {
         if(n <= 0) return false;
         while (n % 2 == 0) {
@@ -17,6 +21,10 @@ public class EASY_231_PowerofTwo {
         return n == 1;
     }
 
+    /*
+    Runtime: 2 ms, faster than 61.97% of Java online submissions for Power of Two.
+    Memory Usage: 41.5 MB, less than 28.41% of Java online submissions for Power of Two.
+     */
     public boolean isPowerOfTwo2(int n) {
         return n>0 && (n&(n-1))==0;
         // or

@@ -8,6 +8,31 @@ import java.util.Set;
 
 public class EASY_202_HappyNumber {
 
+    /*
+    Runtime: 0 ms, faster than 100.00% of Java online submissions for Happy Number.
+    Memory Usage: 39.3 MB, less than 65.78% of Java online submissions for Happy Number.
+     */
+    public boolean isHappy20220311(int n) {
+        int digit = 0;
+        int num = n;
+        while(num != 1 )
+        {
+            if(num < 10 && num != 1 && num != 7)
+                return false;
+            int tmp = 0;
+            while(num > 0)
+            {
+                digit = num%10;
+                tmp += digit*digit;
+                num/=10;
+            }
+            num = tmp;
+            if(num == 1)
+                return true;
+        }
+        return true;
+    }
+
     public boolean isHappy(int n) {
         int slow = n;
         int fast = n;

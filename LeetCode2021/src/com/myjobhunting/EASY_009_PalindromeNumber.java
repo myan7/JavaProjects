@@ -25,6 +25,60 @@ import java.util.Stack;
 
 public class EASY_009_PalindromeNumber {
 
+    /*
+    Following the thoughts based on the second idea,
+    to avoid the overflow issue of the reverted number,
+    what if we only revert half of the \text{int}int number?
+    After all, the reverse of the last half of the palindrome
+    should be the same as the first half of the number, if the number is a palindrome.
+
+    For example,
+    if the input is 1221,
+    if we can revert the last part of the number "1221" from "21" to "12",
+    and compare it with the first half of the number "12",
+    since 12 is the same as 12, we know that the number is a palindrome.
+
+    Time complexity : O(\log_{10}(n))
+    We divided the input by 10 for every iteration, so the time complexity is O(log10(n))
+    Space complexity : O(1).
+    Runtime: 11 ms, faster than 79.84% of Java online submissions for Palindrome Number.
+    Memory Usage: 45.1 MB, less than 24.37% of Java online submissions for Palindrome Number.
+    * */
+    public boolean isPalindrome3( int x ){
+        // Special cases:
+        // As discussed above, when x < 0, x is not a palindrome.
+        // Also if the last digit of the number is 0, in order to be a palindrome,
+        // the first digit of the number also needs to be 0.
+        // Only 0 satisfy this property.
+        if (x < 0 || ( x != 0 && x % 10 == 0))
+            return false;
+        int rev = 0;
+        while (rev < x )
+        {
+            rev = rev*10 + x%10;
+            x = x/10;
+        }
+        return x == rev || x == rev/10;
+    }
+
+    /*
+    Runtime: 14 ms, faster than 54.52% of Java online submissions for Palindrome Number.
+    Memory Usage: 44.5 MB, less than 41.05% of Java online submissions for Palindrome Number.
+     */
+    public boolean isPalindrome20220309_1(int x) {
+        if(x < 0)
+            return false;
+        int tmp = Math.abs(x);
+        int p = 0;
+        while(tmp > 0)
+        {
+            p = p*10 + tmp%10;
+            tmp /= 10;
+        }
+        return p == x;
+    }
+
+
    /*  The first idea that comes to mind is to convert the number into string,
    and check if the string is a palindrome,
    but this would require extra non-constant space for creating the string
@@ -72,39 +126,7 @@ public class EASY_009_PalindromeNumber {
         return reversedVal == intVal;
     } // isPalindrome2 ends
 
-    /*
-    Following the thoughts based on the second idea,
-    to avoid the overflow issue of the reverted number,
-    what if we only revert half of the \text{int}int number?
-    After all, the reverse of the last half of the palindrome
-    should be the same as the first half of the number, if the number is a palindrome.
 
-    For example,
-    if the input is 1221,
-    if we can revert the last part of the number "1221" from "21" to "12",
-    and compare it with the first half of the number "12",
-    since 12 is the same as 12, we know that the number is a palindrome.
-
-    Time complexity : O(\log_{10}(n))
-    We divided the input by 10 for every iteration, so the time complexity is O(log10(n))
-    Space complexity : O(1).
-    * */
-    public boolean isPalindrome3( int x ){
-        // Special cases:
-        // As discussed above, when x < 0, x is not a palindrome.
-        // Also if the last digit of the number is 0, in order to be a palindrome,
-        // the first digit of the number also needs to be 0.
-        // Only 0 satisfy this property.
-        if (x < 0 || ( x != 0 && x % 10 == 0))
-            return false;
-        int rev = 0;
-        while (rev < x )
-        {
-            rev = rev*10 + x%10;
-            x = x/10;
-        }
-        return x == rev || x == rev/10;
-    }
 
     public boolean isPalindrome3_v1( int x ){
         if (x < 0 || ( x != 0 && x % 10 == 0))

@@ -1,7 +1,27 @@
 package com.myjobhunting;
 
 public class EASY_053_MaximumSubarray {
+    // similar to LC 740. Delete and Earn. LC 198 house robber
 
+    /*
+    Runtime: 2 ms, faster than 67.09% of Java online submissions for Maximum Subarray.
+    Memory Usage: 73.9 MB, less than 58.08% of Java online submissions for Maximum Subarray.
+     */
+    public int maxSubArray4(int[] nums) {
+        // Initialize our variables using the first element.
+        int currentSubarray = nums[0];
+        int maxSubarray = nums[0];
+
+        // Start with the 2nd element since we already used the first one.
+        for (int i = 1; i < nums.length; i++) {
+            int num = nums[i];
+            // If current_subarray is negative, throw it away. Otherwise, keep adding to it.
+            currentSubarray = Math.max(num, currentSubarray + num);
+            maxSubarray = Math.max(maxSubarray, currentSubarray);
+        }
+
+        return maxSubarray;
+    }
     public int maxSubArray03012022_1(int[] nums) {
         int[] dp = new int[nums.length];
         dp[0] = nums[0];
@@ -45,6 +65,7 @@ public class EASY_053_MaximumSubarray {
         }
         return ans;
     }
+
 
 
     /* Time Limit Exceeded */

@@ -26,7 +26,7 @@ Explanation:
 5 --> 101
 
 Constraints:
-0 <= n <= 105
+0 <= n <= 10^5
  */
 public class EASY_338_CountingBits {
 
@@ -41,6 +41,11 @@ public class EASY_338_CountingBits {
     // if n == 7, nofB = 3; 0111  2+1    shift to the right by one, n >> 1 --> 3,who has 2 bits of 1  7&1 = 1
     // so number of bits of 1 in 1, is the number of bits 0 + 1&1
 
+    /*
+    idea comes from reverse bits
+    Runtime: 1 ms, faster than 99.98% of Java online submissions for Counting Bits.
+    Memory Usage: 48.3 MB, less than 31.20% of Java online submissions for Counting Bits.
+     */
     public int[] countBits(int n) {
         int[] res = new int[n+1];
         for(int i = 0; i<=n; i++)
@@ -48,6 +53,18 @@ public class EASY_338_CountingBits {
             res[i] = res[i>>1]+ (i&1);
         }
         return res;
+    }
+
+    /*
+    Runtime: 2 ms, faster than 81.25% of Java online submissions for Counting Bits.
+    Memory Usage: 48.5 MB, less than 18.87% of Java online submissions for Counting Bits.
+     */
+    public int[] countBits1(int n) {
+        int[] ans = new int[n + 1];
+        for (int x = 1; x <= n; x++) {
+            ans[x] = ans[x & (x - 1)] + 1;
+        }
+        return ans;
     }
 
     // initial solution, count for every item.

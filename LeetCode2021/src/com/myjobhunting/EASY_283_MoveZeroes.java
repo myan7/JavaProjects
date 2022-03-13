@@ -2,6 +2,10 @@ package com.myjobhunting;
 
 // https://leetcode.com/problems/move-zeroes/
 
+/*
+Runtime: 1 ms, faster than 100.00% of Java online submissions for Move Zeroes.
+Memory Usage: 55.4 MB, less than 7.44% of Java online submissions for Move Zeroes.
+ */
 public class EASY_283_MoveZeroes {
     public void moveZeroes(int[] nums)
     {

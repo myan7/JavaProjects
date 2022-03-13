@@ -1,6 +1,25 @@
 package com.myjobhunting;
 
 public class EASY_067_AddBinary {
+
+    public String addBinary20220308(String a, String b) {
+        StringBuilder sb = new StringBuilder();
+
+        int i = a.length()-1, j = b.length()-1, carry = 0;
+
+        while(i >= 0 || j >= 0 || carry == 1)
+        {
+            int sum = carry;
+            if(i >= 0 )
+                sum += a.charAt(i--) - '0';
+            if(j >=0 )
+                sum += b.charAt(j--) - '0';
+            sb.insert(0,sum%2);
+            carry = sum/2;
+        }
+        return sb.toString();
+    }
+
     public String addBinary(String a, String b) {
         StringBuilder sb = new StringBuilder();
 

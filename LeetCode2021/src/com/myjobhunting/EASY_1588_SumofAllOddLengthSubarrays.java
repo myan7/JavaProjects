@@ -23,7 +23,12 @@ If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58
 
  */
 public class EASY_1588_SumofAllOddLengthSubarrays {
+
     // https://www.youtube.com/watch?v=J5IIH35EBVE&ab_channel=NateSantti
+    /*
+    Runtime: 0 ms, faster than 100.00% of Java online submissions for Sum of All Odd Length Subarrays.
+    Memory Usage: 41.4 MB, less than 57.10% of Java online submissions for Sum of All Odd Length Subarrays.
+     */
     public int sumOddLengthSubarrays(int[] arr) {
         int sum = 0;
         int len = arr.length;

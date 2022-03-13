@@ -7,6 +7,20 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class EASY_268_MissingNumber {
+
+    /*
+    Runtime: 0 ms, faster than 100.00% of Java online submissions for Missing Number.
+    Memory Usage: 42.8 MB, less than 88.91% of Java online submissions for Missing Number.
+     */
+    public int missingNumber20220311(int[] nums) {
+        int len = nums.length;
+        int ans = len*(len+1)/2;
+        int sum = 0;
+        for(int num: nums)
+            sum += num;
+        return ans - sum;
+    }
+
     /*
     Both bit manipulation and Gauss' Formula is O(n) Time and O(1) space
      */
@@ -90,4 +104,6 @@ public class EASY_268_MissingNumber {
         }
         return nums.length;
     }
+
+
 }

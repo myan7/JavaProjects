@@ -22,26 +22,7 @@ import java.util.Deque;
 import java.util.List;
 
 public class MEDIUM_1490_CloneN_aryTree {
-    class NaryNode {
-        public int val;
-        public List<NaryNode> children;
-
-
-        public NaryNode() {
-            children = new ArrayList<NaryNode>();
-        }
-
-        public NaryNode(int _val) {
-            val = _val;
-            children = new ArrayList<NaryNode>();
-        }
-
-        public NaryNode(int _val,ArrayList<NaryNode> _children) {
-            val = _val;
-            children = _children;
-        }
-    }
-/*
+    /*
 The problem asks us to make a clone of a tree.
 The task is not as intuitive as making a copy of an object.
 By default, when we create a new object by copying another object,
@@ -78,17 +59,17 @@ their implementations can be quite similar. In fact, as we will discover later, 
     // Time Complexity: O(M)
     // We traverse each node in the tree once and only once.
     // Space Complexity: O(M)
-    public NaryNode cloneTree1(NaryNode root) {
+    public NaryNode_1490 cloneTree1(NaryNode_1490 root) {
 
         // base case:
         if(root == null)
             return root;
 
         // First, copy the node itself.
-        NaryNode nodeCopy = new NaryNode(root.val);
+        NaryNode_1490 nodeCopy = new NaryNode_1490(root.val);
 
         // Then, recursively clone the sub-trees.
-        for (NaryNode child : root.children) {
+        for (NaryNode_1490 child : root.children) {
             nodeCopy.children.add(cloneTree1(child));
         }
         return nodeCopy;
@@ -96,34 +77,53 @@ their implementations can be quite similar. In fact, as we will discover later, 
 
     // Approach 2: DFS with Iteration
     // Runtime: 9 ms, faster than 10.85% of Java online submissions
-    public NaryNode cloneTree2(NaryNode root) {
+    public NaryNode_1490 cloneTree2(NaryNode_1490 root) {
         if(root == null)
             return root;
 
-        NaryNode newRoot = new NaryNode(root.val);
+        NaryNode_1490 newRoot = new NaryNode_1490(root.val);
 
         // Here we used the ArrayDeque instead of the Queue class,
         // which is a more efficient implementation of queue data structure.
-        Deque<NaryNode[]> stack = new ArrayDeque<>();
+        Deque<NaryNode_1490[]> stack = new ArrayDeque<>();
 
         // Starting point to kick off the DFS visits.
-        stack.addLast(new NaryNode[]{root,newRoot});
+        stack.addLast(new NaryNode_1490[]{root,newRoot});
 
         while(!stack.isEmpty())
         {
-            NaryNode[] nodePair = stack.pop();
-            NaryNode oldNode = nodePair[0];
-            NaryNode newNode = nodePair[1];
-            for(NaryNode childNode: oldNode.children)
+            NaryNode_1490[] nodePair = stack.pop();
+            NaryNode_1490 oldNode = nodePair[0];
+            NaryNode_1490 newNode = nodePair[1];
+            for(NaryNode_1490 childNode: oldNode.children)
             {
-                NaryNode newChildNode = new NaryNode(childNode.val);
+                NaryNode_1490 newChildNode = new NaryNode_1490(childNode.val);
                 // Make a copy for each child node.
                 newNode.children.add(newChildNode);
                 // Schedule a visit to copy the child nodes of each child node.
-                stack.push(new NaryNode[]{childNode,newChildNode});
+                stack.push(new NaryNode_1490[]{childNode,newChildNode});
             }
         }
         return newRoot;
     }
 
+    static class NaryNode_1490 {
+        public int val;
+        public List<NaryNode_1490> children;
+    
+    
+        public NaryNode_1490() {
+            children = new ArrayList<NaryNode_1490>();
+        }
+    
+        public NaryNode_1490(int _val) {
+            val = _val;
+            children = new ArrayList<NaryNode_1490>();
+        }
+    
+        public NaryNode_1490(int _val, ArrayList<NaryNode_1490> _children) {
+            val = _val;
+            children = _children;
+        }
+    }
 }

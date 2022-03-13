@@ -43,4 +43,26 @@ public class EASY_070_ClimbingStairs {
         }
         return ways[n-1];
     }
+
+    /*
+    Runtime: 0 ms, faster than 100.00% of Java online submissions for Climbing Stairs.
+    Memory Usage: 41 MB, less than 29.87% of Java online submissions for Climbing Stairs.
+     */
+    public int climbStairs_Recur(int n) {
+        int memo[] = new int[n + 1];
+        return climb_Stairs(0, n, memo);
+    }
+    private int climb_Stairs(int i, int n, int memo[]) {
+        if (i > n) {
+            return 0;
+        }
+        if (i == n) {
+            return 1;
+        }
+        if (memo[i] > 0) {
+            return memo[i];
+        }
+        memo[i] = climb_Stairs(i + 1, n, memo) + climb_Stairs(i + 2, n, memo);
+        return memo[i];
+    }
 }

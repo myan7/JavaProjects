@@ -9,6 +9,24 @@ all the elements on the secondary diagonal that are not part of the primary diag
 
 public class EASY_1572_MatrixDiagonalSum {
 
+    /*
+    Runtime: 0 ms, faster than 100.00% of Java online submissions for Matrix Diagonal Sum.
+    Memory Usage: 48.1 MB, less than 21.47% of Java online submissions for Matrix Diagonal Sum.
+     */
+    public int diagonalSum20220312(int[][] mat) {
+        int sum = 0, col = mat[0].length;
+        int left = 0, right = col-1;
+        for(int[] curr: mat)
+        {
+            if(left != right)
+                sum += curr[left] + curr[right];
+            else
+                sum += curr[left];
+            left++;
+            right--;
+        }
+        return sum;
+    }
     // 0ms
     public int diagonalSum(int[][] mat) {
         int n = mat.length;

@@ -4,6 +4,22 @@ package com.myjobhunting;
 
 
 public class EASY_1672_RichestCustomerWealth {
+    /*
+    Runtime: 1 ms, faster than 46.90% of Java online submissions for Richest Customer Wealth.
+    Memory Usage: 44.1 MB, less than 5.81% of Java online submissions for Richest Customer Wealth.
+     */
+    public int maximumWealth20220312(int[][] accounts) {
+        int max = Integer.MIN_VALUE;
+        for(int[] account : accounts)
+        {
+            int tmp = 0;
+            for(int bal: account)
+                tmp += bal;
+            max = Math.max(tmp,max);
+        }
+        return max;
+    }
+
     public int maximumWealth(int[][] accounts) {
         int max = Integer.MIN_VALUE;
         for(int i = 0; i < accounts.length; i++)

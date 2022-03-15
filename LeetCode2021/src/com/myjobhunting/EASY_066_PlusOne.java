@@ -48,4 +48,25 @@ public class EASY_066_PlusOne {
         newInt[0] =1;
         return newInt;
     }
+
+    public int[] plusOne20220313(int[] digits) {
+        int carry = 0;
+        for(int i = digits.length-1; i>= 0 ;i--)
+        {
+            int val = digits[i]+carry;
+            if(i == digits.length -1)
+                val = val+1;
+            carry = val/10;
+            digits[i] = val%10;
+        }
+        if(carry == 1)
+        {
+            int[] ans = new int[digits.length+1];
+            /*for(int i = 1; i< ans.length; i++)
+			ans[i] = digits[i-1];*/ // this is not necessary, because plus one.
+            ans[0] = carry;
+            return ans;
+        }
+        return digits;
+    }
 }

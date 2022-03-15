@@ -27,6 +27,22 @@ s consists of printable ASCII characters.
 public class EASY_709_ToLowerCase {
 
     /*
+    Runtime: 0 ms, faster than 100.00% of Java online submissions for To Lower Case.
+    Memory Usage: 40.5 MB, less than 64.45% of Java online submissions for To Lower Case.
+     */
+    public String toLowerCase20220314(String s) {
+        char[] chArr = s.toCharArray();
+        for(int i = 0 ; i< s.length() ;i++)
+        {
+            char curr = s.charAt(i);
+            if(curr >= 'A' && curr <= 'Z')
+                chArr[i] = (char)('a' + curr-'A');
+            else
+                chArr[i] = curr;
+        }
+        return String.valueOf(chArr);
+    }
+    /*
     Runtime: 1 ms, faster than 72.64% of Java online submissions for To Lower Case.
     Memory Usage: 42.2 MB, less than 36.88% of Java online submissions for To Lower Case.
      */

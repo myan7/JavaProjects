@@ -30,10 +30,36 @@ s will be a valid string such that mapping is always possible.
 public class EASY_1309_DecryptStringfromAlphabettoIntegerMapping {
 
     /*
+    Runtime: 1 ms, faster than 84.56% of Java online submissions for Decrypt String from Alphabet to Integer Mapping.
+    Memory Usage: 40.5 MB, less than 74.00% of Java online submissions for Decrypt String from Alphabet to Integer Mapping.
+     */
+    public String freqAlphabets(String s) {
+        Map<Integer, Character> map = new HashMap<>();
+        for(int i = 1; i <= 26; i++)
+        {
+            map.put(i,(char)(i-1+'a'));
+        }
+        StringBuilder sb = new StringBuilder();
+        for(int i = s.length()-1; i>= 0 ; i--)
+        {
+            int val = 0;
+            if(s.charAt(i) == '#')
+            {
+                val = Integer.parseInt(s.substring(i-2,i));
+                i-=2;
+            }
+            else
+                val = s.charAt(i)-'0';
+            sb.insert(0,map.get(val));
+        }
+        return sb.toString();
+    }
+
+    /*
     Runtime: 1 ms, faster than 84.72% of Java online submissions for Decrypt String from Alphabet to Integer Mapping.
     Memory Usage: 40.2 MB, less than 78.02% of Java online submissions for Decrypt String from Alphabet to Integer Mapping.
      */
-    public String freqAlphabets(String s) {
+    public String freqAlphabets0(String s) {
         int i = 1;
         char ch = 'a';
         Map<String, String> map = new HashMap<>();

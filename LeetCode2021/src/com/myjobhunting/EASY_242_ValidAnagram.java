@@ -2,27 +2,41 @@ package com.myjobhunting;
 
 //https://leetcode.com/problems/valid-anagram/
 
+/*
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+Example 1:
+Input: s = "anagram", t = "nagaram"
+Output: true
+
+Example 2:
+Input: s = "rat", t = "car"
+Output: false
+
+Constraints:
+1 <= s.length, t.length <= 5 * 104
+s and t consist of lowercase English letters.
+
+Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
+ */
 import java.util.Arrays;
 
 public class EASY_242_ValidAnagram {
 
-    // the idea is to check the frequencies of each char in both strings
-    public boolean isAnagram(String s, String t) {
-        int lenS = s.length(), lenT = t.length();
-        if(lenS != lenT)
-            return false;
-        // s and t consist of lowercase English letters.
-        int[] alphabet = new int[26];
-        for(int i = 0; i< lenS; i++)
-        {
-            alphabet[s.charAt(i)-'a']++;
-            alphabet[t.charAt(i)-'a']--;
-        }
-        for(int i : alphabet)
-        {
+    /*
+    Runtime: 1 ms, faster than 100.00% of Java online submissions for Valid Anagram.
+    Memory Usage: 42.1 MB, less than 80.06% of Java online submissions for Valid Anagram.
+     */
+    public boolean isAnagram20220316(String s, String t) {
+        int[] letters = new int[26]; // for follow up question // int[] letters = new int[256];
+        for(char c : s.toCharArray())
+            letters[c-'a']++;
+        for(char c : t.toCharArray())
+            letters[c-'a']--;
+        for(int i : letters)
             if(i != 0)
                 return false;
-        }
         return true;
     }
 
@@ -86,4 +100,6 @@ public class EASY_242_ValidAnagram {
             a=a^c;
         return a ==0;
     }
+
+
 }

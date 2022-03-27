@@ -45,5 +45,30 @@ Constraints:
 1 <= nums[i] <= 20
  */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EASY_1863_SumofAllSubsetXORTotals {
+    public int subsetXORSum(int[] nums) {
+        if (nums.length == 0) return 0;
+        int[] sum = new int[1];
+        dfs(nums, 0, new ArrayList<>(), sum);
+        return sum[0];
+    }
+    private void dfs(int[] nums, int current, List<Integer> ls, int[] sum)
+    {
+        int tmp = 0;
+        for(int num: ls)
+        {
+            tmp ^= num;
+        }
+        sum[0] += tmp;
+
+        for(int i = current; i < nums.length; i++)
+        {
+            ls.add(nums[i]);
+            dfs(nums,i+1, ls,sum);
+            ls.remove(ls.size()-1);
+        }
+    }
 }

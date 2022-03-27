@@ -16,7 +16,7 @@ The number of nodes in the list is in the range [0, 500].
 -100 <= Node.val <= 100
 0 <= k <= 2 * 10^9
  */
-public class MEDIUM_061RotateList {
+public class MEDIUM_061_RotateList {
 
     // better solution
     public ListNode rotateRight(ListNode head, int k) {

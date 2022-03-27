@@ -39,21 +39,21 @@ public class EASY_278_FirstBadVersion extends VersionControl{
         return right;
     }
 
+    /*
+    Runtime: 12 ms, faster than 99.45% of Java online submissions for First Bad Version.
+    Memory Usage: 38.2 MB, less than 94.45% of Java online submissions for First Bad Version.
+     */
     public int firstBadVersion3(int n) {
-        int left = 0;
+        int left = 1;
         int right = n;
 
         while(left <= right)
         {
             int mid = left + (right - left)/2;
             if(!isBadVersion(mid))
-            {
                 left = mid+1;
-            }
             else
-            {
                 right = mid-1;
-            }
         }
         return left;
 

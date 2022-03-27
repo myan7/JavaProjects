@@ -3,6 +3,43 @@ package com.myjobhunting;
 
 public class EASY_234_PalindromeLinkedList {
 
+    /*
+    Runtime: 5 ms, faster than 88.88% of Java online submissions for Palindrome Linked List.
+    Memory Usage: 97 MB, less than 70.36% of Java online submissions for Palindrome Linked List.
+     */
+    public boolean isPalindrome20220322(ListNode head) {
+        ListNode slow = head, fast = head;
+        while(fast != null && fast.next != null)
+        {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        fast = reverse20220322(slow);
+        while(head != null && fast != null )
+        {
+            if(head.val != fast.val)
+                return false;
+            head = head.next;
+            fast = fast.next;
+        }
+        return true;
+    }
+
+    private ListNode reverse20220322(ListNode node)
+    {
+        ListNode left = null;
+        ListNode curr = node;
+        ListNode right = null;
+        while(curr != null)
+        {
+            right = curr.next;
+            curr.next = left;
+            left = curr;
+            curr = right;
+        }
+        return left;
+    }
+
     public boolean isPalindrome(ListNode head) {
         // first find out the middle node;
         ListNode slow = head, fast = head,prev = null, next = null;

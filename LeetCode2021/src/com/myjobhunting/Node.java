@@ -12,10 +12,13 @@ public class Node {
         val = _val;
     }
 
+    public Node(int val, Node next) { this.val = val; this.next = next; }
+
     public Node(int _val, Node _left, Node _right, Node _next) {
         val = _val;
         left = _left;
         right = _right;
         next = _next;
     }
+
 }

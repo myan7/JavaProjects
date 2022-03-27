@@ -3,13 +3,24 @@ package com.practice;
 public class Main {
     public static void main(String[] args)
     {
+
+        int[][] existingSeg = new int[][]{{1,3}, {5,10}, {13,16}};
+        int[][] newSeg = new int[][]{{2,4},{6,8},{9,12},{17,20}};
+
+        Test tmp = new Test();
+        int ans = tmp.getMinPaint(existingSeg,newSeg);
+        System.out.println(ans);
+
+
+
+
         /*
         MS_OA_10
-         */
+
         MS_OA_010_CheckifTwoStringsoftheSamePattern solution = new MS_OA_010_CheckifTwoStringsoftheSamePattern();
         System.out.println(solution.istheSamePattern("A2le", "1P2e"));
         System.out.println(solution.istheSamePattern("a9b", "a9a"));
-
+*/
         /*
         MS_OA_003_MinimumAdjacentSwapstoMakePalindrome solution = new MS_OA_003_MinimumAdjacentSwapstoMakePalindrome();
         String s1 = "bcaab";

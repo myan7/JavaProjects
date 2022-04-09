@@ -1,6 +1,8 @@
 package com.myjobhunting;
 // https://leetcode.com/problems/campus-bikes-ii/
 
+import java.util.*;
+
 /*
 On a campus represented as a 2D grid, there are n workers and m bikes,
 with n <= m. Each worker and bike is a 2D coordinate on this grid.
@@ -75,5 +77,96 @@ public class MEDIUM_1066_CampusBikes_II {
                 used[i] = false;
             }
         }
+    }
+
+    /*
+    Runtime: 50 ms, faster than 44.21% of Java online submissions for Campus Bikes II.
+    Memory Usage: 47.3 MB, less than 7.22% of Java online submissions for Campus Bikes II.
+     */
+    public int assignBikes2(int[][] workers, int[][] bikes) {
+        Queue<Node> pq = new PriorityQueue<>(1,(a, b)->(a.cost-b.cost));
+        Set<String> seen = new HashSet<>();
+        pq.offer(new Node(0,0,0));
+        while (!pq.isEmpty()){
+            Node curr = pq.poll();
+            String key = "$"+curr.worker+"$"+curr.mask;
+            // reason - you can skip if you have already seen this mask
+            // is because this is a PQ - and lower cost has already been seen
+            // with this exact mask (i.e., those bikes used in some order)
+            // then there is no point to consider a higher cost one
+            if (seen.contains(key))
+                continue;
+            seen.add(key);
+            // all workers have a bike if this is true
+            if (curr.worker == workers.length)
+                return curr.cost;
+            // scan all bikes - and create new nodes into the PQ for next worker.
+            for(int j = 0; j < bikes.length; j++){
+                if ( (curr.mask & (1<<j)) == 0){
+                    pq.offer( new Node(curr.worker+1, curr.mask | (1 << j),
+                            curr.cost + getDist2(bikes[j], workers[curr.worker]) ));
+                }
+            }
+        }
+        return -1;
+    }
+    private int getDist2(int[] bikepos,int[] wpos){
+        return Math.abs(bikepos[0]-wpos[0]) + Math.abs(bikepos[1]-wpos[1]);
+    }
+    class Node {
+        int worker;
+        int mask;
+        int cost;
+        public Node(int w,int m,int cost){
+            this.worker = w;
+            this.mask = m;
+            this.cost = cost;
+        }
+    }
+
+    // this is wrong because there are more bikes than workers.
+    /*
+    workers :   [[239,904],[191,103],[260,117],[86,78],[747,62]]
+    bikes:      [[660,8],[431,772],[78,576],[894,481],[451,730],[155,28]]
+    */
+    // this method only works under circumstance of there are the same amount of workers and bikes.
+    public int assignBikes0(int[][] workers, int[][] bikes) {
+        int nw = workers.length, nb = bikes.length;
+        int[][] map = new int[nw*nb][3];
+        int index = 0;
+        for(int i = 0; i < nw; i++)
+        {
+            for(int j = 0; j < nb; j++)
+            {
+                map[index][0] = i;
+                map[index][1] = j;
+                map[index][2] = getDist0(workers[i], bikes[j]);
+                index++;
+            }
+        }
+        Arrays.sort(map,(a, b) -> a[0] == b[0]? a[2]-b[2]: a[0]-b[0]);
+        Set<Integer> sw = new HashSet<>();
+        Set<Integer> sb = new HashSet<>();
+        int sum = 0;
+        int i = 0;
+        while(i< index)
+        {
+            int workerIndex = map[i][0];
+            int bikeIndex = map[i][1];
+            //int flag = 0;
+            if(!sw.contains(workerIndex) && !sb.contains(bikeIndex) )
+            {
+                sum += map[i][2];
+                sw.add(workerIndex);
+                sb.add(bikeIndex);
+                //flag = 1;
+            }
+            i++;
+        }
+        return sum;
+    }
+    private int getDist0(int[] worker, int[] bike)
+    {
+        return Math.abs(worker[0] - bike[0]) + Math.abs(worker[1] - bike[1]);
     }
 }

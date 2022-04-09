@@ -9,9 +9,16 @@ public class Main {
 
     public static void main(String[] args) {
         /* testing code starts here */
+
+        MEDIUM_633_SumofSquareNumbers ans = new MEDIUM_633_SumofSquareNumbers();
+
+        System.out.println(ans.judgeSquareSum(100));
+
+
+
         /*
         EASY_832_FlippinganImage
-         */
+
         EASY_832_FlippinganImage solution = new EASY_832_FlippinganImage();
         int[][] image = {{1,1,0},{1,0,1},{0,0,0}};
         solution.flipAndInvertImage(image);
@@ -20,6 +27,9 @@ public class Main {
             for (int j : i)
                 System.out.println(i[j]);
         }
+        */
+
+
         /*
         MEDIUM_006_ZigzagConversion
 

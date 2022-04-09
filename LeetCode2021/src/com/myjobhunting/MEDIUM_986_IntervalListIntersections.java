@@ -34,6 +34,32 @@ endj < startj+1
  */
 public class MEDIUM_986_IntervalListIntersections {
 
+    /*
+    Runtime: 2 ms, faster than 99.95% of Java online submissions for Interval List Intersections.
+    Memory Usage: 42.9 MB, less than 93.94% of Java online submissions for Interval List Intersections.
+     */
+    public int[][] intervalIntersection20220404(int[][] firstList, int[][] secondList) {
+        List<int[]> ans = new ArrayList<>();
+        int list1 = 0, list2 = 0;
+        while(list1 < firstList.length && list2 < secondList.length)
+        {
+            if(firstList[list1][1] < secondList[list2][0])
+                list1++;
+            else if(secondList[list2][1] < firstList[list1][0])
+                list2++;
+            else
+            {
+                int low = Math.max(firstList[list1][0], secondList[list2][0]);
+                int high = Math.min(firstList[list1][1],secondList[list2][1]);
+                ans.add(new int[]{low,high});
+                if(high == firstList[list1][1])
+                    list1++;
+                else
+                    list2++;
+            }
+        }
+        return ans.toArray(new int[ans.size()][]);
+    }
 
     /*
     Runtime: 5 ms, faster than 51.46% of Java online submissions for Interval List Intersections.
@@ -45,13 +71,12 @@ public class MEDIUM_986_IntervalListIntersections {
 
         while (i < firstList.length && j < secondList.length) {
             // Let's check if A[i] intersects B[j].
-            // lo - the startpoint of the intersection
+            // lo - the starting point of the intersection
             // hi - the endpoint of the intersection
             int lo = Math.max(firstList[i][0], secondList[j][0]);
             int hi = Math.min(firstList[i][1], secondList[j][1]);
             if (lo <= hi)
                 ans.add(new int[]{lo, hi});
-
             // Remove the interval with the smallest endpoint
             if (firstList[i][1] < secondList[j][1])
                 i++;

@@ -1,15 +1,49 @@
 package com.practice;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args)
     {
+        // myTrim
+        String s = "     a   ";
+        int left = 0, right = s.length()-1;
+        System.out.println("-"+s+"-");
+        while(left <= right && s.charAt(left) == ' ')
+            left++;
+        while(left <= right && s.charAt(right) == ' ')
+            right--;
+        String ans = left <= right? s.substring(left,right+1):"";
+        System.out.println("ans = "+ans);
 
-        int[][] existingSeg = new int[][]{{1,3}, {5,10}, {13,16}};
+        //count the occurrence of a substring
+        /*String s = "abcaasdfkjwerasdbfasdfasadsfweasdfkljalsdkf";
+        String subString = "sd";
+        int count = 0;
+        for (int i = 0; i < s.length(); ) {
+            if(s.indexOf(subString,i)>=0)
+            {
+                count++;
+                i = s.indexOf(subString,i)+subString.length();
+            }
+            else
+                i++;
+        }
+        System.out.println(count);*/
+
+        // sort a string array
+        /*String[] arr = {"abc","bcd","aba","aaa"};
+        print(arr);
+        Arrays.sort(arr,(a, b)->a.compareTo(b));
+        print(arr);*/
+
+
+        /*int[][] existingSeg = new int[][]{{1,3}, {5,10}, {13,16}};
         int[][] newSeg = new int[][]{{2,4},{6,8},{9,12},{17,20}};
 
         Test tmp = new Test();
         int ans = tmp.getMinPaint(existingSeg,newSeg);
-        System.out.println(ans);
+        System.out.println(ans);*/
 
 
 
@@ -101,5 +135,16 @@ public class Main {
         12586269025
         DP fib call uses 0 ms to calculate the 20th number in the series.
          */
+    }
+
+    public static void print(String[] arr)
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append('[');
+        for(String i : arr)
+            sb.append(i).append(",");
+
+        sb.deleteCharAt(sb.length()-1).append(']');
+        System.out.println(sb);
     }
 }

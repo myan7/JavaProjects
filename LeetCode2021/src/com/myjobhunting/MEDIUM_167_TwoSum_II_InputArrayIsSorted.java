@@ -6,6 +6,25 @@ import java.util.Map;
 
 public class MEDIUM_167_TwoSum_II_InputArrayIsSorted {
 
+    /*
+    Runtime: 1 ms, faster than 99.31% of Java online submissions for Two Sum II - Input Array Is Sorted.
+    Memory Usage: 45 MB, less than 91.11% of Java online submissions for Two Sum II - Input Array Is Sorted.
+     */
+    public int[] twoSum20220405(int[] numbers, int target) {
+        int left = 0, right = numbers.length-1;
+        while(left < right)
+        {
+            int sum = numbers[left] + numbers[right];
+            if(sum == target)
+                return new int[]{left+1, right+1};
+            if(sum > target)
+                right--;
+            else
+                left++;
+        }
+        return new int[]{left, right};
+    }
+
     // two pointers
     public int[] twoSum(int[] numbers, int target) {
         int left = 0, right = numbers.length -1;

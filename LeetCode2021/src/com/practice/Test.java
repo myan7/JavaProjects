@@ -1,5 +1,10 @@
 package com.practice;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public class Test {
 
     public int getMinPaint(int[][] existingSeg, int[][] newSeg)
@@ -26,5 +31,39 @@ public class Test {
                 currNew++;
         }
         return minPaint;
+    }
+
+    public int largestInteger(int num) {
+        List<Integer> odd = new ArrayList<>();
+        List<Integer> even = new ArrayList<>();
+        List<Integer> digits = new ArrayList<>();
+        while(num > 0)
+        {
+            digits.add(0,num%10);
+            num /= 10;
+            //System.out.println(digits.get(digits.size()-1));
+        }
+        for(int i = 0; i < digits.size(); i++)
+        {
+            if(i%2 == 0)
+                even.add(digits.get(i));
+            else
+                odd.add(digits.get(i));
+        }
+        Collections.sort(even, Comparator.reverseOrder());
+        Collections.sort(odd, Comparator.reverseOrder());
+
+        StringBuilder sb = new StringBuilder();
+        int evenInd = 0, oddInd = 0, index = 0;
+        while(evenInd < even.size() || oddInd < odd.size())
+        {
+            if(evenInd < even.size())
+                sb.append(even.get(evenInd++));
+            if(oddInd < odd.size())
+                sb.append(odd.get(oddInd++));
+        }
+
+        int ans = Integer.parseInt(sb.toString());
+        return ans;
     }
 }

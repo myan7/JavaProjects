@@ -33,6 +33,46 @@ import java.util.List;
 public class EASY_350_IntersectionofTwoArrays_II {
 
 
+    /* Binary search version
+    Runtime: 7 ms, faster than 22.56% of Java online submissions for Intersection of Two Arrays II.
+    Memory Usage: 43.9 MB, less than 59.62% of Java online submissions for Intersection of Two Arrays II.
+     */
+    public int[] intersect20220410(int[] nums1, int[] nums2) {
+        List<Integer> intersection = new ArrayList<>();
+        boolean[] seen = new boolean[nums2.length];
+        Arrays.fill(seen, false);
+        Arrays.sort(nums2);
+        for( int num : nums1)
+        {
+            if(binSearch(nums2, num, seen))
+                intersection.add(num);
+        }
+        int[] ans = new int[intersection.size()];
+        int i = 0;
+        for(int val : intersection)
+            ans[i++] = val;
+        return ans;
+    }
+
+    private boolean binSearch(int[] arr, int target,boolean[] seen)
+    {
+        int left = 0, right = arr.length-1;
+        while(left <= right)
+        {
+            int mid = left + (right - left);
+            if(arr[mid] == target && !seen[mid])
+            {
+                seen[mid] = true;
+                return true;
+            }
+            else if(arr[mid] < target)
+                left = mid + 1;
+            else
+                right = mid - 1;
+        }
+        return false;
+    }
+
     /*
     Runtime: 2 ms, faster than 95.81% of Java online submissions for Intersection of Two Arrays II.
     Memory Usage: 42.2 MB, less than 91.71% of Java online submissions for Intersection of Two Arrays II.

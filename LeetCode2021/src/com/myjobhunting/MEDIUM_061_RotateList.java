@@ -19,6 +19,10 @@ The number of nodes in the list is in the range [0, 500].
 public class MEDIUM_061_RotateList {
 
     // better solution
+    /*
+    Runtime: 0 ms, faster than 100.00% of Java online submissions for Rotate List.
+    Memory Usage: 43 MB, less than 59.11% of Java online submissions for Rotate List.
+     */
     public ListNode rotateRight(ListNode head, int k) {
         if (head==null||head.next==null) return head;
         ListNode sentinel =new ListNode();

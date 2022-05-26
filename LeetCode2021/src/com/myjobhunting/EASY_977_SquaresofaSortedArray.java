@@ -4,6 +4,7 @@ package com.myjobhunting;
 // two pointers
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 public class EASY_977_SquaresofaSortedArray {
     public int[] sortedSquares(int[] nums) {
@@ -58,6 +59,21 @@ public class EASY_977_SquaresofaSortedArray {
     }
 
 
+    /*
+    Runtime: 27 ms, faster than 8.87% of Java online submissions for Squares of a Sorted Array.
+    Memory Usage: 44.1 MB, less than 84.48% of Java online submissions for Squares of a Sorted Array.
+
+     */
+    public int[] sortedSquares_20220519(int[] nums) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for(int i = 0; i< nums.length; i++)
+            pq.offer(nums[i]*nums[i]);
+        int[] ans = new int[nums.length];
+
+        for(int i =0; i < nums.length; i++)
+            ans[i] = pq.poll();
+        return ans;
+    }
 
 
 }

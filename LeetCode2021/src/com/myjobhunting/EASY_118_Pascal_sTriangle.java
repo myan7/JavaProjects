@@ -14,6 +14,11 @@ Output: [[1]]
 
 
 public class EASY_118_Pascal_sTriangle {
+    /*
+    Runtime: 0 ms, faster than 100.00% of Java online submissions for Pascal's Triangle.
+    Memory Usage: 40.1 MB, less than 84.59% of Java online submissions for Pascal's Triangle.
+     */
+
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> ans = new ArrayList<>();
         for(int row = 0;row < numRows; row++)

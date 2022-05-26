@@ -20,8 +20,10 @@ Constraints:
 0 <= nums[i] <= 5000
  */
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 public class EASY_905_SortArrayByParity {
 
@@ -62,7 +64,10 @@ public class EASY_905_SortArrayByParity {
     }
 
     // initial solution // two pointers
-    // Runtime: 1 ms, faster than 97.13% of Java online submissions
+    /*
+    Runtime: 1 ms, faster than 96.61% of Java online submissions for Sort Array By Parity.
+    Memory Usage: 42.8 MB, less than 97.59% of Java online submissions for Sort Array By Parity.
+     */
     public int[] sortArrayByParity0(int[] nums) {
         int left = 0, right = nums.length-1;
         while(left < right)
@@ -126,5 +131,29 @@ public class EASY_905_SortArrayByParity {
                      .mapToInt(i -> i)
                      .toArray();
         */
+    }
+
+    /*
+    Runtime: 4 ms, faster than 9.85% of Java online submissions for Sort Array By Parity.
+    Memory Usage: 49.8 MB, less than 6.02% of Java online submissions for Sort Array By Parity.
+     */
+    public int[] sortArrayByParity20220501(int[] nums) {
+        List<Integer> odd = new ArrayList<>();
+        List<Integer> even = new ArrayList<>();
+        for(int num: nums)
+        {
+            if(num%2==0)
+                even.add(num);
+            else
+                odd.add(num);
+        }
+        List<Integer> all = new ArrayList<>();
+        all.addAll(even);
+        all.addAll(odd);
+        int[] ans = new int[all.size()];
+        int i = 0;
+        for(Integer val : all)
+            ans[i++] = val;
+        return ans;
     }
 }

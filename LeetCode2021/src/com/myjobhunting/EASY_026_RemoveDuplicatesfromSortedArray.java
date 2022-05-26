@@ -44,5 +44,27 @@ public class EASY_026_RemoveDuplicatesfromSortedArray {
 
     }
 
+    /*
+    Runtime: 1 ms, faster than 94.81% of Java online submissions for Remove Duplicates from Sorted Array.
+    Memory Usage: 48.2 MB, less than 15.03% of Java online submissions for Remove Duplicates from Sorted Array.
+     */
+    public int removeDuplicates_05252022(int[] nums) {
+        // sorted in non-decreasing order
+        // Do not allocate extra space for another array.
+        // You must do this by modifying the input array in-place with O(1) extra memory.
+        if(nums.length <= 1)
+            return nums.length;
+        int left = 0, right = 1;
+        while(right < nums.length)
+        {
+            if(nums[left] != nums[right])
+            {
+                left++;
+            }
+            nums[left] = nums[right];
+            right++;
+        }
+        return left+1;
+    }
 
 }

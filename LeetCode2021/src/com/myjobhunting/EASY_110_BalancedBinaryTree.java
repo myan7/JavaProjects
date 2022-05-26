@@ -46,30 +46,7 @@ public class EASY_110_BalancedBinaryTree {
         return Math.max(height(tree.left)+1,height(tree.right)+1);
     }
 
-    public boolean isBalanced2(TreeNode root) {
 
-        if(root == null)
-            return true;
-        int left = maxDepthLeft(root,0);
-        int right = maxDepthRight(root,0);
-        //System.out.println("left is " + left);
-        //System.out.println("right is " + right);
-        return Math.abs(left -right) == 1;
-    }
-
-    private int maxDepthLeft(TreeNode node,int currDepth)
-    {
-        if(node.left == null)
-            return currDepth;
-        return maxDepthLeft(node.left,currDepth+1);
-    }
-
-    private int maxDepthRight(TreeNode node,int currDepth)
-    {
-        if(node.right == null)
-            return currDepth;
-        return maxDepthLeft(node.right,currDepth+1);
-    }
 
     public boolean isBalanced3(TreeNode root) {
         return dfs(root)!=-1;

@@ -1,6 +1,55 @@
 package com.myjobhunting;
 
 public class EASY_066_PlusOne {
+
+
+    public int[] plusOne_LC(int[] digits) {
+        int n = digits.length;
+
+        // move along the input array starting from the end
+        for (int idx = n - 1; idx >= 0; --idx) {
+            // set all the nines at the end of array to zeros
+            if (digits[idx] == 9) {
+                digits[idx] = 0;
+            }
+            // here we have the rightmost not-nine
+            else {
+                // increase this rightmost not-nine by 1
+                digits[idx]++;
+                // and the job is done
+                return digits;
+            }
+        }
+        // we're here because all the digits are nines
+        digits = new int[n + 1];
+        digits[0] = 1;
+        return digits;
+    }
+
+    public int[] plusOne20220412(int[] digits) {
+        int[] ans;
+        int carry = 1;
+        for(int i = digits.length-1; i>= 0; i--)
+        {
+            digits[i] = digits[i]+ carry;
+            carry = digits[i]/10;
+            digits[i] = digits[i]%10;
+        }
+        int index = 0;
+        if(carry == 1)
+        {
+            ans = new int[digits.length+1];
+            ans[index++] = 1;
+            for(int i = 0; i < digits.length; i++)
+                ans[index++] = digits[i];
+        }
+        else
+        {
+            return digits;
+        }
+        return ans;
+    }
+
     public int[] plusOne(int[] digits) {
         int[] add = new int[]{0,0};
         if (digits[digits.length-1] + 1 == 10) {

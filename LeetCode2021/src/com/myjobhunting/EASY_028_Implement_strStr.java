@@ -97,8 +97,8 @@ public class EASY_028_Implement_strStr {
     }
 
     /*
-    Runtime: 8 ms, faster than 91.99% of Java online submissions for Implement strStr().
-    Memory Usage: 43.4 MB, less than 34.97% of Java online submissions for Implement strStr().
+    Runtime: 0 ms, faster than 100.00% of Java online submissions for Implement strStr().
+    Memory Usage: 40.6 MB, less than 97.14% of Java online submissions for Implement strStr().
      */
     public int strStr_20220320(String haystack, String needle) {
         int nLen = needle.length();

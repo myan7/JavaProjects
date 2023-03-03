@@ -30,6 +30,10 @@ Constraints:
 divisor != 0
  */
 public class MEDIUM_029_DivideTwoIntegers {
+    /*
+    Runtime: 2 ms, faster than 62.23% of Java online submissions for Divide Two Integers.
+    Memory Usage: 41.4 MB, less than 47.43% of Java online submissions for Divide Two Integers.
+     */
     public int divide(int dividend, int divisor) {
         if (dividend == 1 << 31 && divisor == -1) return (1 << 31) - 1;
         int a = Math.abs(dividend), b = Math.abs(divisor), res = 0, x = 0;
